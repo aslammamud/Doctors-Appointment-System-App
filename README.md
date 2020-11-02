@@ -1,4 +1,4 @@
-# Doctors-Appointment-System-App
+# Doctors Appointment System App
 
 **Idea Behind This App:** Modern times are blessed with technology. In all spheres of our life we are dependent on technology or internet. It has reduce many difficulties. 
 Once faced a problem regarding this appointment system and by having concerned about this situations  the idea has come to our mind to make a Mobile based application for the beneficial of both Doctor and Patients. After observing this situations in our real life we are being motivated to do this work.

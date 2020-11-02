@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Appointment System</string>
+    <string name="dcSpec">Speciality : </string>
+    <string name="spec_1">Associate Consultant, Cardiology</string>
+    <string name="dc_degree">MBBS, D Card (London),Msc Cardiology (UK)</string>
+    <string name="dc_phn_1">(880-2) 8144400, 8142431</string>
+    <string name="dc_email_1">info@squarehospital.com</string>
+
+    <string-array name="department_names_array">
+        <item>Emergency</item>
+        <item>Medicine</item>
+        <item>Neuromedicine</item>
+        <item> Physical Medicine</item>
+        <item>Surgery</item>
+        <item>Neurosugery</item>
+        <item>Paediatric Surgery</item>
+        <item>Othopedic Surgery</item>
+        <item>Burn Plastic</item>
+        <item> Dermatology</item>
+        <item>Nephrology</item>
+        <item>Psychiatry</item>
+        <item>Cardiology</item>
+        <item>Paediatrics</item>
+        <item>Medical Oncology</item>
+        <item>Gastroenterology</item>
+        <item>Radiology</item>
+        <item>Anesthesiology</item>
+        <item>Traumatologyv</item>
+        <item>Urology</item>
+        <item>ENT</item>
+        <item>Opthalmology</item>
+        <item>Gynae</item>
+        <item>Transfusion Medicine</item>
+        <item>Paediatric Nephrology</item>
+        <item>Hepatology</item>
+        <item>Neurology</item>
+        <item>Dentistry</item>
+        <item>Oral-Maxillofacial Surgery</item>
+    </string-array>
+</resources>

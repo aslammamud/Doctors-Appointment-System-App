@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navDashboardPage"
+        android:enabled="true"
+        android:icon="@drawable/dashboard"
+        android:title="Dashboard" />
+    <item
+        android:id="@+id/navAdminPage"
+        android:enabled="true"
+        android:icon="@drawable/admin"
+        android:title="Admin" />
+</menu>

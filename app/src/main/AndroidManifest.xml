@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.error404.appointmentsystem">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <dist:module dist:instant="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/das_applogo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/das_applogo_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:icon">
+
+        <activity android:name=".Dashboard" />
+        <activity android:name=".GetAppointment" />
+        <activity android:name=".DoctorsList" />
+        <activity android:name=".AddDoctors" />
+        <activity android:name=".Feedback" />
+        <activity android:name=".Departments" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

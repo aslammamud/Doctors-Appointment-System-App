@@ -1,7 +1,7 @@
 package com.error404.appointmentsystem;
 
 import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.format.DateFormat;
@@ -9,38 +9,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TimePicker;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 
-import static android.widget.Toast.LENGTH_LONG;
-import static android.widget.Toast.makeText;
 
 public class GetAppointment extends AppCompatActivity {
 
     DatePickerDialog DatePicker;
-    TimePickerDialog TimePicker;
-    private EditText selectDate, selectTimeSlot, nameOfPatient, ageOfPatient, genderOfPaitent, bloodGroupOfPaitent, symptompsOfPatient, phoneOfPatient, addressOfPatient;
+    private EditText selectDate, nameOfPatient, ageOfPatient, bloodGroupOfPaitent, symptompsOfPatient, phoneOfPatient, addressOfPatient;
+    private RadioGroup radioTimeSlot, genderOfPaitent;
+    private RadioButton radioTimeButton, radioSexButton;
     private Button bookAppointment, cancelAppointment;
-    private DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_getappointment);
 
-        myRef = FirebaseDatabase.getInstance().getReference("Appointments");
-
+        radioTimeSlot = findViewById(R.id.radioTimeSlot);
         selectDate = findViewById(R.id.selectDate);
-        selectTimeSlot = findViewById(R.id.selectTimeSlot);
         nameOfPatient = findViewById(R.id.nameOfPatient);
         ageOfPatient = findViewById(R.id.ageOfPaitent);
         genderOfPaitent = findViewById(R.id.genderOfPaitent);
@@ -51,8 +42,6 @@ public class GetAppointment extends AppCompatActivity {
 
         final String DoctorName = getIntent().getStringExtra("DoctorName");
         final String DoctorID = getIntent().getStringExtra("DoctorID");
-        //Toast.makeText(GetAppointment.this,DoctorName,Toast.LENGTH_SHORT).show();
-        //Toast.makeText(GetAppointment.this,DoctorID,Toast.LENGTH_SHORT).show();
 
         bookAppointment = findViewById(R.id.bookAppointment);
         cancelAppointment = findViewById(R.id.cancelAppointment);
@@ -70,7 +59,7 @@ public class GetAppointment extends AppCompatActivity {
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                //selectDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+
                                 Calendar calendar1 = Calendar.getInstance();
                                 calendar1.set(Calendar.YEAR, year);
                                 calendar1.set(Calendar.MONTH, monthOfYear);
@@ -85,62 +74,41 @@ public class GetAppointment extends AppCompatActivity {
             }
         });
 
-        selectTimeSlot.setInputType(InputType.TYPE_NULL);
-        selectTimeSlot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar calendar = Calendar.getInstance();
-                int hour = calendar.get(Calendar.HOUR);
-                int minute = calendar.get(Calendar.MINUTE);
-
-                boolean is24HourFormat = DateFormat.is24HourFormat(GetAppointment.this);
-
-                TimePicker = new TimePickerDialog(GetAppointment.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hour, int minute) {
-                        //selectTimeSlot.setText(hourOfDay + ":" + minute);
-
-                        Calendar calendar1 = Calendar.getInstance();
-                        calendar1.set(Calendar.HOUR, hour);
-                        calendar1.set(Calendar.MINUTE, minute);
-
-                        CharSequence charSequence = DateFormat.format("hh:mm a", calendar1);
-                        selectTimeSlot.setText(charSequence);
-                    }
-                }, hour, minute, is24HourFormat);
-
-                TimePicker.show();
-            }
-        });
 
         bookAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Integer timeSlotID = radioTimeSlot.getCheckedRadioButtonId();
+                radioTimeButton = findViewById(timeSlotID);
+                Integer genderID = genderOfPaitent.getCheckedRadioButtonId();
+                radioSexButton = findViewById(genderID);
+
                 String date = selectDate.getText().toString();
-                String time = selectTimeSlot.getText().toString();
+                String time = radioTimeButton.getText().toString();
                 String name = nameOfPatient.getText().toString();
                 String age = ageOfPatient.getText().toString();
-                String gender = genderOfPaitent.getText().toString();
+                String gender = radioSexButton.getText().toString();
                 String bloodgroup = bloodGroupOfPaitent.getText().toString();
                 String symptoms = symptompsOfPatient.getText().toString();
                 String phone = phoneOfPatient.getText().toString();
                 String address = addressOfPatient.getText().toString();
 
-                GetAppointmentItem DataItem = new GetAppointmentItem(name, age, gender, bloodgroup, symptoms, phone, address, date, time, DoctorName, DoctorID);
+                Intent intent = new Intent(GetAppointment.this, GetAppointmentConfirmation.class);
+                intent.putExtra("Date", date);
+                intent.putExtra("Time", time);
+                intent.putExtra("PatientName", name);
+                intent.putExtra("Age", age);
+                intent.putExtra("Gender", gender);
+                intent.putExtra("BloodGroup", bloodgroup);
+                intent.putExtra("Symptoms", symptoms);
+                intent.putExtra("Phone", phone);
+                intent.putExtra("Address", address);
+                intent.putExtra("DoctorName", DoctorName);
+                intent.putExtra("DoctorID", DoctorID);
+                finish();
+                startActivity(intent);
 
-                myRef.child(date).child(name).setValue(DataItem).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        makeText(getApplicationContext(), "Your appointment placed successfully!", LENGTH_LONG).show();
-                        finish();
-                        startActivity(getIntent());
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        makeText(getApplicationContext(), "Error! Try again", LENGTH_LONG).show();
-                    }
-                });
             }
         });
 

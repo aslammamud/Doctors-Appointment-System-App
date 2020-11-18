@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorCard1">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start">
+
+            <TextView
+                android:id="@+id/trackSerialNo"
+                android:layout_margin="5dp"
+                android:layout_weight=".25"
+                android:fontFamily="@font/allerta"
+                android:gravity="start"
+                android:padding="5dp"
+                android:text="Sr."
+                android:textSize="18sp"></TextView>
+
+            <TextView
+                android:id="@+id/trackSerialName"
+                android:layout_margin="5dp"
+                android:layout_weight=".75"
+                android:fontFamily="@font/allerta"
+                android:gravity="start"
+                android:padding="5dp"
+                android:text="P Name"
+                android:textSize="18sp"></TextView>
+
+            <TextView
+                android:id="@+id/trackSerialTime"
+                android:layout_margin="5dp"
+                android:layout_weight=".5"
+                android:fontFamily="@font/allerta"
+                android:gravity="start"
+                android:padding="5dp"
+                android:text="Time"
+                android:textSize="18sp"></TextView>
+
+            <TextView
+                android:id="@+id/trackSerialDoctor"
+                android:layout_margin="5dp"
+                android:layout_weight=".5"
+                android:fontFamily="@font/allerta"
+                android:gravity="start"
+                android:padding="5dp"
+                android:text="Doctor"
+                android:textSize="18sp"></TextView>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

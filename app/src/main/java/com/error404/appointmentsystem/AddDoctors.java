@@ -118,7 +118,7 @@ public class AddDoctors extends AppCompatActivity implements View.OnClickListene
 
         //Navigation_Starts_here
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.navAdminPage);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -126,7 +126,7 @@ public class AddDoctors extends AppCompatActivity implements View.OnClickListene
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navDashboardPage:
-                        startActivity(new Intent(getApplicationContext(), Departments.class));
+                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         finish();
                         overridePendingTransition(0, 0);
                         return true;

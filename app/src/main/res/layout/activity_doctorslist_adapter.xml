@@ -3,28 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorHint"
+    android:background="@color/colorNavigation"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         style="@style/CardView.Light"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/colorHint">
+        android:layout_marginEnd="8dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorHint"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:orientation="vertical"
+            android:background="@color/colorNavigation"
             android:paddingBottom="2dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_doctor_card"
                 android:orientation="horizontal">
@@ -48,38 +47,39 @@
                 </androidx.cardview.widget.CardView>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
                         android:gravity="left"
+                        android:paddingHorizontal="5dp"
                         android:orientation="horizontal">
 
                         <TextView
                             style="@style/TextAppearance.AppCompat.Title"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginTop="5dp"
                             android:text="Dr. "
-                            android:textColor="#000"
+                            android:fontFamily="@font/allerta"
+                            android:textColor="@color/colorBlack"
                             android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/showName"
                             style="@style/TextAppearance.AppCompat.Title"
-                            android:layout_width="220dp"
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="5dp" />
+                            android:fontFamily="@font/allerta" />
+
 
                         <Button
                             android:id="@+id/arrowBtn"
                             android:layout_width="35dp"
                             android:layout_height="30dp"
-                            android:layout_marginTop="2dp"
                             android:background="@drawable/ic_keyboard_arrow_down_black_24dp" />
 
                     </LinearLayout>
@@ -87,12 +87,12 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
+                        android:paddingHorizontal="6dp"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="12dp"
                             android:paddingTop="3dp"
                             android:paddingRight="3dp"
                             android:src="@drawable/stethoscope" />
@@ -100,20 +100,22 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:gravity="center"
                             android:text="@string/dcSpec"
-                            android:textColor="#000"
+                            android:fontFamily="@font/allerta"
+                            android:gravity="center"
+                            android:textColor="@color/colorBlack"
                             android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/showSpeciality"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:fontFamily="sans-serif"
-                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/allerta"
+                            android:gravity="fill_vertical"
+                            android:text="vule jawa"
                             android:paddingLeft="5dp"
-                            android:textColor="#000"
-                            android:textSize="13sp" />
+                            android:textColor="@color/colorBlack" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -129,13 +131,6 @@
                 android:orientation="vertical"
                 android:paddingBottom="5dp"
                 android:visibility="gone">
-
-                <!-- <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginBottom="3dp"
-                    android:background="@color/colorDivider"/> -->
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -154,16 +149,17 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Degree : "
-                        android:textColor="#000"
+                        android:fontFamily="@font/allerta"
+                        android:textColor="@color/colorBlack"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/showDegree"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:fontFamily="sans-serif"
+                        android:fontFamily="@font/allerta"
                         android:gravity="center"
-                        android:textColor="#000"
+                        android:textColor="@color/colorBlack"
                         android:textSize="13sp" />
                 </LinearLayout>
 
@@ -184,7 +180,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Phone : "
-                        android:textColor="#000"
+                        android:fontFamily="@font/allerta"
+                        android:textColor="@color/colorBlack"
                         android:textStyle="bold" />
 
                     <TextView
@@ -192,7 +189,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:textColor="#000" />
+                        android:fontFamily="@font/allerta"
+                        android:textColor="@color/colorBlack" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -212,7 +210,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Email : "
-                        android:textColor="#000"
+                        android:fontFamily="@font/allerta"
+                        android:textColor="@color/colorBlack"
                         android:textStyle="bold" />
 
                     <TextView
@@ -220,7 +219,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:textColor="#000" />
+                        android:fontFamily="@font/allerta"
+                        android:textColor="@color/colorBlack" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -237,8 +237,9 @@
                         android:background="#22653d"
                         android:padding="5dp"
                         android:text="Apointment"
+                        android:fontFamily="@font/allerta"
                         android:textAllCaps="false"
-                        android:textColor="#fff" />
+                        android:textColor="@color/colorWhite" />
 
                     <Button
                         android:id="@+id/Feedback"
@@ -247,8 +248,9 @@
                         android:background="#22653d"
                         android:padding="5dp"
                         android:text="Feedback"
+                        android:fontFamily="@font/allerta"
                         android:textAllCaps="false"
-                        android:textColor="#fff" />
+                        android:textColor="@color/colorWhite" />
                 </LinearLayout>
 
             </LinearLayout>

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorHint"
     android:orientation="vertical"
     tools:context=".Departments">
 
@@ -50,14 +49,5 @@
         android:layout_weight="1"
         android:padding="20dp"
         android:scrollbars="none" />
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#46dc88"
-        app:menu="@menu/bottom_navigation_menu" />
-
 </LinearLayout>
 

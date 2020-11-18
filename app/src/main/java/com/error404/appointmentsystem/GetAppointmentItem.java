@@ -16,6 +16,9 @@ public class GetAppointmentItem {
     public GetAppointmentItem(String name) {
     }
 
+    public GetAppointmentItem() {
+    }
+
     public GetAppointmentItem(String name, String age, String gender, String bloodgroup, String symptoms, String phone, String address, String date, String time, String doctorname, String doctorid) {
         this.name = name;
         this.age = age;

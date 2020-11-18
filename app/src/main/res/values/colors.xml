@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorWhite">#FFFFFF</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorDivider">#FF5252</color>
     <color name="colorCard1">#FFFFFF</color>
     <color name="colorCard2">#AB69F0AE</color>
-    <color name="colorformpage">#e3ca89</color>
+    <color name="colorformpage">#00000000</color>
     <color name="colorformtitleline">#6F6A6566</color>
     <color name="colorformtitle">#6A6566</color>
     <color name="red">#D51404</color>

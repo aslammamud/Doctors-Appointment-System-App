@@ -1,19 +1,14 @@
 package com.error404.appointmentsystem;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Departments extends AppCompatActivity {
     private ListView listView;
@@ -56,44 +51,11 @@ public class Departments extends AppCompatActivity {
             }
         });
 
-
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setSelectedItemId(R.id.navDashboardPage);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.navDashboardPage:
-                        return true;
-                    case R.id.navAdminPage:
-                        startActivity(new Intent(getApplicationContext(), AddDoctors.class));
-                        finish();
-                        overridePendingTransition(0, 0);
-                        return true;
-                }
-                return false;
-            }
-        });
     }
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Are you sure you want to exit?")
-                .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Departments.this.finish();
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alert = builder.create();
-        alert.show();
-
+        finish();
+        super.onBackPressed();
     }
 }

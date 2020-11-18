@@ -18,11 +18,15 @@
         tools:replace="android:icon">
 
         <activity android:name=".Dashboard" />
-        <activity android:name=".GetAppointment" />
-        <activity android:name=".DoctorsList" />
         <activity android:name=".AddDoctors" />
+        <activity android:name=".GetAppointment" />
+        <activity android:name=".GetAppointmentConfirmation" />
         <activity android:name=".Feedback" />
+        <activity android:name=".DoctorsList" />
         <activity android:name=".Departments" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".TrackSerial" />
+        <activity android:name=".TrackSerialList" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

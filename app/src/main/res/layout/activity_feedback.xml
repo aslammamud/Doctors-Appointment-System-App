@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorHint"
     android:orientation="vertical"
     tools:context=".Feedback">
 
@@ -26,6 +25,7 @@
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="Feedback"
+                android:fontFamily="@font/allerta"
                 android:textColor="@color/colorNavigation"
                 android:textSize="45sp"
                 android:textStyle="bold" />
@@ -176,8 +176,9 @@
                 android:layout_height="35dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@color/colorButton"
+                android:background="@color/colorNavigation"
                 android:text="Send"
+                android:fontFamily="@font/allerta"
                 android:textAllCaps="false" />
 
             <Button
@@ -185,8 +186,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_margin="10dp"
-                android:background="@color/colorButton"
+                android:background="@color/colorLightRed"
                 android:text="Discard"
+                android:fontFamily="@font/allerta"
                 android:textAllCaps="false" />
 
         </LinearLayout>

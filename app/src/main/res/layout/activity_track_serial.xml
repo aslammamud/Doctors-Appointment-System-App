@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/calender" />
+
+        <EditText
+            android:id="@+id/selectDateTrack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:gravity="center"
+            android:hint="selcet appointment date" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginVertical="40dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/clock" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/allerta"
+            android:paddingHorizontal="5dp"
+            android:text="Time"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:id="@+id/radioTimeTrackSlot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioTenAmTrack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 AM" />
+
+            <RadioButton
+                android:id="@+id/radioOnePMTrack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 PM" />
+
+            <RadioButton
+                android:id="@+id/radioFourPMTrack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 PM" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/trackSerialButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorNavigation"
+        android:fontFamily="@font/allerta"
+        android:text="Track"
+        android:textColor="@color/colorCard1"
+        android:textSize="22sp"></Button>
+
+</LinearLayout>

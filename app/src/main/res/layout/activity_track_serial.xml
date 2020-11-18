@@ -91,7 +91,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="20dp"
-        android:background="@color/colorNavigation"
+        android:background="@color/colorAcceptButton"
         android:fontFamily="@font/allerta"
         android:text="Track"
         android:textColor="@color/colorCard1"

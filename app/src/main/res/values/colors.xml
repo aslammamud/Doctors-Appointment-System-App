@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
     <color name="colorPrimaryDark">#00574B</color>
+
     <color name="colorAccent">#D81B60</color>
     <color name="colorDivider">#FF5252</color>
     <color name="colorCard1">#FFFFFF</color>
@@ -13,10 +15,8 @@
     <color name="overlay">#8B333232</color>
     <color name="textColor">#FFFFFF</color>
     <color name="colorHint">#B2FFEB3B</color>
-    <color name="colorLightRed">#D5F44336</color>
-    <color name="colorButton">#92B964</color>
+    <color name="colorAcceptButton">#46dc88</color>
+    <color name="colorDiscardButton">#D5F44336</color>
     <color name="appMainBackground">#FAFF0D</color>
-    <color name="colorBlack">#000000</color>
     <color name="colorTransparent">#00000000</color>
-    <color name="colorNavigation">#46dc88</color>
 </resources>

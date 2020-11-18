@@ -69,7 +69,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
-        android:background="@color/colorNavigation"
+        android:background="@color/colorAcceptButton"
         android:fontFamily="@font/allerta"
         android:text="Go Back"
         android:textColor="@color/colorCard1"

@@ -28,7 +28,7 @@
                     android:fontFamily="@font/allerta"
                     android:gravity="center"
                     android:text="Make An Appointment"
-                    android:textColor="@color/colorNavigation"
+                    android:textColor="@color/colorAcceptButton"
                     android:textSize="25sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -412,7 +412,7 @@
                         android:layout_height="35dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
-                        android:background="@color/colorNavigation"
+                        android:background="@color/colorAcceptButton"
                         android:fontFamily="@font/allerta"
                         android:text="Book"
                         android:textAllCaps="false" />
@@ -422,7 +422,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
                         android:layout_margin="10dp"
-                        android:background="@color/colorLightRed"
+                        android:background="@color/colorDiscardButton"
                         android:fontFamily="@font/allerta"
                         android:text="Cancel"
                         android:textAllCaps="false" />

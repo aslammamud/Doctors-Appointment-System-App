@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -23,7 +23,6 @@ public class TrackSerialList extends AppCompatActivity {
     private RecyclerView trackSerialRecylcerview;
     private TrackSerialListAdapter adapter;
     private List<GetAppointmentItem> items;
-    private DatabaseReference reference;
     private Button goBackButton;
 
     @Override
@@ -41,9 +40,12 @@ public class TrackSerialList extends AppCompatActivity {
 
         final String Date = getIntent().getStringExtra("DateTrack");
         final String Time = getIntent().getStringExtra("TimeTrack");
+        final String Department = getIntent().getStringExtra("DeptTrack");
+        final String Doctor = getIntent().getStringExtra("DoctTrack");
 
-        reference = FirebaseDatabase.getInstance().getReference("Appointments").child(Date).child(Time);
-        reference.addValueEventListener(new ValueEventListener() {
+        Query query = FirebaseDatabase.getInstance().getReference("Appointments")
+                .child(Date).child(Time).orderByChild("doctorname").equalTo(Doctor);
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 items.clear();

@@ -10,13 +10,13 @@
         <item>Emergency</item>
         <item>Medicine</item>
         <item>Neuromedicine</item>
-        <item> Physical Medicine</item>
+        <item>Physical Med</item>
         <item>Surgery</item>
         <item>Neurosugery</item>
-        <item>Paediatric Surgery</item>
-        <item>Othopedic Surgery</item>
+        <item>Paediatric Surg</item>
+        <item>Othopedic Surg</item>
         <item>Burn Plastic</item>
-        <item> Dermatology</item>
+        <item>Dermatology</item>
         <item>Nephrology</item>
         <item>Psychiatry</item>
         <item>Cardiology</item>
@@ -28,13 +28,13 @@
         <item>Traumatologyv</item>
         <item>Urology</item>
         <item>ENT</item>
-        <item>Opthalmology</item>
+        <item>Ophthalmology</item>
         <item>Gynae</item>
-        <item>Transfusion Medicine</item>
+        <item>Transfusion Med</item>
         <item>Paediatric Nephrology</item>
         <item>Hepatology</item>
         <item>Neurology</item>
         <item>Dentistry</item>
-        <item>Oral-Maxillofacial Surgery</item>
+        <item>Oral Surg</item>
     </string-array>
 </resources>

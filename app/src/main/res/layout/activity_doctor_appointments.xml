@@ -7,10 +7,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:gravity="start"
         android:layout_marginTop="60dp"
-        android:paddingHorizontal="35dp"
-        android:orientation="horizontal">
+        android:gravity="start"
+        android:orientation="horizontal"
+        android:paddingHorizontal="35dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -32,62 +32,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:paddingHorizontal="30dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/allerta"
-            android:padding="8dp"
-            android:text="Department "
-            android:textColor="@color/colorBlack"
-            android:textSize="20sp" />
-
-        <Spinner
-            android:id="@+id/departmentSpinnerTrack"
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:padding="8dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:paddingHorizontal="30dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/allerta"
-            android:padding="8dp"
-            android:text="Doctor "
-            android:textColor="@color/colorBlack"
-            android:textSize="20sp" />
-
-        <Spinner
-            android:id="@+id/doctorSpinnerTrack"
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:padding="8dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginVertical="10dp"
+        android:layout_marginVertical="40dp"
         android:orientation="horizontal"
         android:paddingHorizontal="30dp">
 

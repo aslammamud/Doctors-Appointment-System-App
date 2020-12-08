@@ -17,7 +17,8 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:icon">
 
-        <activity android:name=".Dashboard" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".DoctorHomeActivity" />
         <activity android:name=".AddDoctors" />
         <activity android:name=".GetAppointment" />
         <activity android:name=".GetAppointmentConfirmation" />

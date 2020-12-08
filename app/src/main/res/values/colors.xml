@@ -6,6 +6,7 @@
 
     <color name="colorAccent">#D81B60</color>
     <color name="colorDivider">#FF5252</color>
+    <color name="colorCard">#6F6A6566</color>
     <color name="colorCard1">#FFFFFF</color>
     <color name="colorCard2">#AB69F0AE</color>
     <color name="colorformpage">#00000000</color>
@@ -15,6 +16,8 @@
     <color name="overlay">#8B333232</color>
     <color name="textColor">#FFFFFF</color>
     <color name="colorHint">#B2FFEB3B</color>
+
+    <color name="colorWarningButton">#FFC400</color>
     <color name="colorAcceptButton">#46dc88</color>
     <color name="colorDiscardButton">#D5F44336</color>
     <color name="appMainBackground">#FAFF0D</color>

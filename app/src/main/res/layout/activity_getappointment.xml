@@ -132,18 +132,21 @@
                             android:id="@+id/radioTenAm"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:checked="true"
                             android:text="10 AM" />
 
                         <RadioButton
                             android:id="@+id/radioOnePM"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:checked="false"
                             android:text="1 PM" />
 
                         <RadioButton
                             android:id="@+id/radioFourPM"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:checked="false"
                             android:text="4 PM" />
                     </RadioGroup>
 
@@ -191,7 +194,7 @@
                             android:layout_gravity="center"
                             android:background="@drawable/shape_formtitle"
                             android:padding="8dp"
-                            android:text="Name : "
+                            android:text="Name"
                             android:textColor="#FFF"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -220,7 +223,7 @@
                             android:layout_gravity="center"
                             android:background="@drawable/shape_formtitle"
                             android:padding="8dp"
-                            android:text="Age : "
+                            android:text="Age"
                             android:textColor="#FFF"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -249,7 +252,7 @@
                             android:layout_gravity="center"
                             android:background="@drawable/shape_formtitle"
                             android:padding="8dp"
-                            android:text="Gender : "
+                            android:text="Gender"
                             android:textColor="#FFF"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -266,7 +269,7 @@
                                 android:id="@+id/radioButtonMale"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:checked="false"
+                                android:checked="true"
                                 android:text="Male"
                                 android:textSize="16sp" />
 
@@ -295,7 +298,7 @@
                             android:layout_gravity="center"
                             android:background="@drawable/shape_formtitle"
                             android:padding="8dp"
-                            android:text="Blood Grp: "
+                            android:text="Blood Grp"
                             android:textColor="#FFF"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -323,7 +326,7 @@
                             android:layout_gravity="center"
                             android:background="@drawable/shape_formtitle"
                             android:padding="8dp"
-                            android:text="Symptoms :"
+                            android:text="Symptoms"
                             android:textColor="#FFF"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -351,7 +354,7 @@
                             android:layout_gravity="center"
                             android:background="@drawable/shape_formtitle"
                             android:padding="8dp"
-                            android:text="Phone : "
+                            android:text="Phone"
                             android:textColor="#FFF"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -380,7 +383,7 @@
                             android:layout_gravity="center"
                             android:background="@drawable/shape_formtitle"
                             android:padding="8dp"
-                            android:text="Address :  "
+                            android:text="Address"
                             android:textColor="#FFF"
                             android:textSize="16sp"
                             android:textStyle="bold" />

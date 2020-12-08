@@ -1,6 +1,6 @@
 package com.error404.appointmentsystem;
 
-public class AddDoctorsItem {
+public class DoctorsItem {
     String name;
     String id;
     String email;
@@ -9,12 +9,13 @@ public class AddDoctorsItem {
     String speciality;
     String imageName;
     String imageUri;
+    String password;
     boolean expanded;
 
-    public AddDoctorsItem() {
+    public DoctorsItem() {
     }
 
-    public AddDoctorsItem(String name, String id, String email, String phone, String degree, String speciality, String imageName, String imageUri) {
+    public DoctorsItem(String name, String id, String email, String phone, String degree, String speciality, String imageName, String imageUri, String password) {
         this.name = name;
         this.id = id;
         this.email = email;
@@ -23,6 +24,7 @@ public class AddDoctorsItem {
         this.speciality = speciality;
         this.imageName = imageName;
         this.imageUri = imageUri;
+        this.password = password;
         this.expanded = false;
     }
 
@@ -96,5 +98,13 @@ public class AddDoctorsItem {
 
     public void setExpanded(boolean expanded) {
         this.expanded = expanded;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

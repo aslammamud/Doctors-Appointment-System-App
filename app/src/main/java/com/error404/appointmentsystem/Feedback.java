@@ -31,7 +31,7 @@ public class Feedback extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
 
-        myRef = FirebaseDatabase.getInstance().getReference("Feedback");
+        myRef = FirebaseDatabase.getInstance().getReference("Feedbacks");
 
         sendFeedback = findViewById(R.id.sendFeedback);
         discardFeedback = findViewById(R.id.discardFeedback);

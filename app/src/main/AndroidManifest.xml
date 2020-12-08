@@ -19,6 +19,7 @@
 
         <activity android:name=".LoginActivity" />
         <activity android:name=".DoctorHomeActivity" />
+        <activity android:name=".AdminHomeActivity" />
         <activity android:name=".AddDoctors" />
         <activity android:name=".GetAppointment" />
         <activity android:name=".GetAppointmentConfirmation" />

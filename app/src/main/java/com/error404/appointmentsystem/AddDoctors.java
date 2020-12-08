@@ -49,8 +49,8 @@ public class AddDoctors extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adddoctors);
 
-        myRef = FirebaseDatabase.getInstance().getReference("Doctors");
-        myRef2 = FirebaseStorage.getInstance().getReference("Doctors");
+        myRef = FirebaseDatabase.getInstance().getReference("Departments");
+        myRef2 = FirebaseStorage.getInstance().getReference("Departments");
 
         addNewDoctor = findViewById(R.id.addNewDoctor);
         goBack = findViewById(R.id.goBack);

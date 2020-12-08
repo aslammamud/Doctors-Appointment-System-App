@@ -20,7 +20,7 @@ import java.util.List;
 public class DoctorsList extends AppCompatActivity {
     private RecyclerView recyclerView;
     private DoctorsListAdapter adapter;
-    private List<AddDoctorsItem> items;
+    private List<DoctorsItem> items;
     private DatabaseReference reference;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,19 +30,19 @@ public class DoctorsList extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        items = new ArrayList<AddDoctorsItem>();
+        items = new ArrayList<DoctorsItem>();
 
         String value = getIntent().getStringExtra("deptposition");
         Toast.makeText(DoctorsList.this, value, Toast.LENGTH_SHORT).show();
 
 
-        reference = FirebaseDatabase.getInstance().getReference("Doctors").child(value);
+        reference = FirebaseDatabase.getInstance().getReference("Departments").child(value);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 items.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    AddDoctorsItem DataItem = snapshot.getValue(AddDoctorsItem.class);
+                    DoctorsItem DataItem = snapshot.getValue(DoctorsItem.class);
                     items.add(DataItem);
                 }
                 adapter = new DoctorsListAdapter(getApplicationContext(), items);

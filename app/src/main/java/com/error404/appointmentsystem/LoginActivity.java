@@ -28,19 +28,18 @@ import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText userEmail, userPass;
+    private EditText userID, userPass;
     private Switch rememberMeSwitch, adminSwitch;
     private Button login, loginCancel;
-
+    private String parentDbName = "Doctors";
     private ProgressDialog loadingBar;
-    private DatabaseReference reference;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        userEmail = findViewById(R.id.userEmail);
+        userID = findViewById(R.id.userID);
         userPass = findViewById(R.id.userPass);
         rememberMeSwitch = findViewById(R.id.rememberMeSwitch);
         adminSwitch = findViewById(R.id.adminSwitch);
@@ -49,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         loginCancel = findViewById(R.id.loginCancel);
 
         Paper.init(this);
-        reference = FirebaseDatabase.getInstance().getReference("Doctors").child("Cardiology").child("Dr Hossain");
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         loginCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userEmail.setText(null);
+                userID.setText(null);
                 userPass.setText(null);
             }
         });
@@ -91,10 +90,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void LoginAllow() {
-        final String UserEmail = userEmail.getText().toString();
+        final String UserID = userID.getText().toString();
         final String UserPass = userPass.getText().toString();
 
-        if (TextUtils.isEmpty(UserEmail)) {
+        if (TextUtils.isEmpty(UserID)) {
             Toast.makeText(LoginActivity.this, "Please enter valid email.", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(UserPass)) {
             Toast.makeText(LoginActivity.this, "Please enter valid password", Toast.LENGTH_SHORT).show();
@@ -104,39 +103,57 @@ public class LoginActivity extends AppCompatActivity {
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
 
-            AllowAccount(UserEmail, UserPass);
+            AllowAccount(UserID, UserPass);
         }
     }
 
-    public void AllowAccount(final String UserEmail, final String UserPass) {
+    public void AllowAccount(final String UserID, final String UserPass) {
         if (rememberMeSwitch.isChecked()) {
-            Paper.book().write(Prevalent.UserIdKey, UserEmail);
+            Paper.book().write(Prevalent.UserIdKey, UserID);
             Paper.book().write(Prevalent.UserPasswordKey, UserPass);
         }
-
-        reference.addValueEventListener(new ValueEventListener() {
+        if (adminSwitch.isChecked()) {
+            parentDbName = "Admin";
+        }
+        final DatabaseReference RootRef;
+        RootRef = FirebaseDatabase.getInstance().getReference();
+        RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                String eid = snapshot.child("email").getValue().toString();
-                String epass = snapshot.child("password").getValue().toString();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child(parentDbName).child(UserID).exists()) {
 
-                if (UserEmail.equals(eid)) {
-                    if (UserPass.equals(epass)) {
-                        Intent intent = new Intent(LoginActivity.this, DoctorHomeActivity.class);
-                        startActivity(intent);
-                        Toast.makeText(LoginActivity.this, "Logged In Successfully", Toast.LENGTH_SHORT).show();
-                    } else {
-                        loadingBar.dismiss();
-                        Toast.makeText(LoginActivity.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
+                    DoctorsItem usersData = dataSnapshot.child(parentDbName).child(UserID).getValue(DoctorsItem.class);
+                    if (usersData.getId().equals(UserID)) {
+                        if (usersData.getPassword().equals(UserPass)) {
+                            if (parentDbName.equals("Admin")) {
+                                Toast.makeText(LoginActivity.this, "Welcome Admin, you are logged in Successfully...", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+
+                                Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
+                                startActivity(intent);
+                            } else if (parentDbName.equals("Doctors")) {
+                                Toast.makeText(LoginActivity.this, "logged in Successfully...", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+
+                                Intent intent = new Intent(LoginActivity.this, DoctorHomeActivity.class);
+                                Prevalent.currentOnlineUser = usersData;
+                                startActivity(intent);
+                            }
+
+                        } else {
+                            loadingBar.dismiss();
+                            Toast.makeText(LoginActivity.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 } else {
+                    Toast.makeText(LoginActivity.this, "Account with this " + UserID + " number do not exists.", Toast.LENGTH_SHORT).show();
                     loadingBar.dismiss();
-                    Toast.makeText(LoginActivity.this, "Employee id incorrect", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+
             }
         });
     }

@@ -21,10 +21,10 @@ import java.util.List;
 
 public class DoctorsListAdapter extends RecyclerView.Adapter<DoctorsListAdapter.ViewHolder> {
     private final Context context;
-    private final List<AddDoctorsItem> items;
+    private final List<DoctorsItem> items;
     private Uri imageUri;
 
-    public DoctorsListAdapter(Context context, List<AddDoctorsItem> items) {
+    public DoctorsListAdapter(Context context, List<DoctorsItem> items) {
         this.context = context;
         this.items = items;
     }
@@ -42,7 +42,7 @@ public class DoctorsListAdapter extends RecyclerView.Adapter<DoctorsListAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull DoctorsListAdapter.ViewHolder holder, int position) {
-        final AddDoctorsItem item = items.get(position);
+        final DoctorsItem item = items.get(position);
 
         //Picasso.get().load(item.imageUri).fit().centerCrop().into(holder.showPicture);
         holder.showName.setText(item.name);

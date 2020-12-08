@@ -25,13 +25,13 @@
             android:textSize="32sp" />
 
         <EditText
-            android:id="@+id/userEmail"
+            android:id="@+id/userID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
             android:gravity="center"
-            android:hint="doctor@email.com"
+            android:hint="id:30***66"
             android:paddingVertical="10dp" />
 
         <EditText

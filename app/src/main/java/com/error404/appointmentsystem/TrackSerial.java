@@ -44,7 +44,7 @@ public class TrackSerial extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_track_serial);
 
-        reference = FirebaseDatabase.getInstance().getReference("Doctors");
+        reference = FirebaseDatabase.getInstance().getReference("Departments");
 
         departmentSpinnerTrack = findViewById(R.id.departmentSpinnerTrack);
         departments = new ArrayList<>();
@@ -58,7 +58,7 @@ public class TrackSerial extends AppCompatActivity {
 
                 String deptname = departmentSpinnerTrack.getSelectedItem().toString();
 
-                referencedoc = FirebaseDatabase.getInstance().getReference("Doctors").child(deptname);
+                referencedoc = FirebaseDatabase.getInstance().getReference("Departments").child(deptname);
                 doctorSpinnerTrack = findViewById(R.id.doctorSpinnerTrack);
                 doctors = new ArrayList<>();
                 doctadapter = new ArrayAdapter<String>(TrackSerial.this, R.layout.simple_spinner_dropdown_item, R.id.simpleSpinView, doctors);

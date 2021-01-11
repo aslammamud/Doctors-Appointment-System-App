@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="start"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="7dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/calender" />
+
+                <EditText
+                    android:id="@+id/selectAppointmentDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center"
+                    android:hint="selcet appointment date" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginVertical="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginEnd="3dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/clock" />
+
+
+                <RadioGroup
+                    android:id="@+id/radioAppointmentTTSlot"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioTTam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="10 AM" />
+
+                    <RadioButton
+                        android:id="@+id/radioTOpm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:text="1 PM" />
+
+                    <RadioButton
+                        android:id="@+id/radioTFpm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:text="4 PM" />
+                </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/searchButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="25dp"
+            android:background="@color/colorTransparent"
+            android:src="@drawable/searchbutton" />
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="8">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_weight="1"
+                android:background="@color/colorCard2"
+                android:fontFamily="@font/allerta"
+                android:gravity="center"
+                android:paddingVertical="5dp"
+                android:paddingStart="5dp"
+                android:text="Sr."
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_weight="2"
+                android:background="@color/colorCard2"
+                android:fontFamily="@font/allerta"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Patient Name"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_weight="2"
+                android:background="@color/colorCard2"
+                android:fontFamily="@font/allerta"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Time"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_weight="3"
+                android:background="@color/colorCard2"
+                android:fontFamily="@font/allerta"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Record"
+                android:textSize="18sp" />
+        </TableRow>
+    </TableLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/appointmentSerialRecylcerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/goBackButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:background="@color/colorAcceptButton"
+        android:fontFamily="@font/allerta"
+        android:text="Go Back"
+        android:textColor="@color/colorCard1"
+        android:textSize="22sp" />
+</LinearLayout>

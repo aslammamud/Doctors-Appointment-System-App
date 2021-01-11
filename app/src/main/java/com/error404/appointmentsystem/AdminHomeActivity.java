@@ -4,43 +4,45 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import io.paperdb.Paper;
+
 public class AdminHomeActivity extends AppCompatActivity {
 
-    private Button appointmentsButton, deptButton, trackButton, tipsButton, emergencyButton, faqButton;
+    private ImageButton adddocButton, removedocButton, historyButton, reviewButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
+        Paper.init(this);
 
-        deptButton = findViewById(R.id.deptButton);
-        tipsButton = findViewById(R.id.tipsButton);
-        emergencyButton = findViewById(R.id.emergencyButton);
-        faqButton = findViewById(R.id.faqButton);
-        appointmentsButton = findViewById(R.id.appointmentsButton);
-        trackButton = findViewById(R.id.trackButton);
+        adddocButton = findViewById(R.id.adddocButton);
+        removedocButton = findViewById(R.id.removedocButton);
+        historyButton = findViewById(R.id.historyButton);
+        reviewButton = findViewById(R.id.adminreviewButton);
 
-        deptButton.setOnClickListener(new View.OnClickListener() {
+
+        adddocButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminHomeActivity.this, Departments.class);
-                startActivity(intent);
-            }
-        });
-        trackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AdminHomeActivity.this, TrackSerial.class);
+                Intent intent = new Intent(AdminHomeActivity.this, AddDoctors.class);
                 startActivity(intent);
             }
         });
 
+        reviewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminHomeActivity.this, Reviews.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -50,6 +52,9 @@ public class AdminHomeActivity extends AppCompatActivity {
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        Paper.book().write(Prevalent.UserIdKey, "id");
+                        Paper.book().write(Prevalent.UserPasswordKey, "pass");
+                        Paper.book().write(Prevalent.ParentDB, "user");
                         startActivity(new Intent(AdminHomeActivity.this, HomeActivity.class));
                         finish();
                     }

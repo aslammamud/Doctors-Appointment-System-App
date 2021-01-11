@@ -1,6 +1,6 @@
 package com.error404.appointmentsystem;
 
-public class GetAppointmentItem {
+public class AppointmentItem {
     String name;
     String age;
     String gender;
@@ -13,13 +13,13 @@ public class GetAppointmentItem {
     String doctorname;
     String doctorid;
 
-    public GetAppointmentItem(String name) {
+    public AppointmentItem(String name) {
     }
 
-    public GetAppointmentItem() {
+    public AppointmentItem() {
     }
 
-    public GetAppointmentItem(String name, String age, String gender, String bloodgroup, String symptoms, String phone, String address, String date, String time, String doctorname, String doctorid) {
+    public AppointmentItem(String name, String age, String gender, String bloodgroup, String symptoms, String phone, String address, String date, String time, String doctorname, String doctorid) {
         this.name = name;
         this.age = age;
         this.gender = gender;

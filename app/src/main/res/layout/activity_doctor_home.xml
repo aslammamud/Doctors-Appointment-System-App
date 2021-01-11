@@ -2,115 +2,108 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorHint"
-    android:orientation="vertical">
+    android:background="@drawable/homebackground"
+    android:orientation="vertical"
+    android:weightSum="3">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/allerta"
-        android:gravity="center"
-        android:padding="20dp"
-        android:text="Home"
-        android:textSize="25sp">
+        android:layout_weight="2"
+        android:orientation="vertical">
 
-    </TextView>
+        <TextView
+            android:id="@+id/doctorNameShow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/allerta"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="Home"
+            android:textSize="25sp">
+
+        </TextView>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:orientation="vertical">
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp">
 
-        <LinearLayout
+        <ImageButton
+            android:id="@+id/docappointmentsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal">
+            android:background="@drawable/shape_homebuttons"
+            android:elevation="2dp"
+            android:src="@drawable/appointmentsbutton" />
 
-            <Button
-                android:id="@+id/appointmentsButton"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:background="@drawable/shape_card1"
-                android:fontFamily="@font/allerta"
-                android:gravity="center"
-                android:text="Appointments"
-                android:textSize="15sp" />
-
-            <Button
-                android:id="@+id/deptButton"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/shape_card1"
-                android:fontFamily="@font/allerta"
-                android:gravity="center"
-                android:text="Departments"
-                android:textSize="15sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <ImageButton
+            android:id="@+id/docdeptButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal">
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/shape_homebuttons"
+            android:elevation="2dp"
+            android:src="@drawable/departmentsbutton" />
 
-            <Button
-                android:id="@+id/trackButton"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:background="@drawable/shape_card1"
-                android:fontFamily="@font/allerta"
-                android:gravity="center"
-                android:text="Track Serial"
-                android:textSize="15sp" />
+    </LinearLayout>
 
-            <Button
-                android:id="@+id/emergencyButton"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/shape_card1"
-                android:fontFamily="@font/allerta"
-                android:gravity="center"
-                android:text="Emergency"
-                android:textSize="15sp" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:padding="5dp">
 
-        </LinearLayout>
-
-        <LinearLayout
+        <ImageButton
+            android:id="@+id/doctrackButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal">
+            android:background="@drawable/shape_homebuttons"
+            android:elevation="2dp"
+            android:src="@drawable/trackserialbutton" />
 
-            <Button
-                android:id="@+id/tipsButton"
-                android:layout_width="150dp"
-                android:layout_height="100dp"
-                android:background="@drawable/shape_card1"
-                android:fontFamily="@font/allerta"
-                android:gravity="center"
-                android:text="Tips"
-                android:textSize="15sp" />
 
-            <Button
-                android:id="@+id/faqButton"
-                android:layout_width="150dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/shape_card1"
-                android:fontFamily="@font/allerta"
-                android:gravity="center"
-                android:text="FAQ"
-                android:textSize="15sp" />
+        <ImageButton
+            android:id="@+id/docemergencyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/shape_homebuttons"
+            android:elevation="2dp"
+            android:src="@drawable/emergencybutton" />
 
-        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageButton
+            android:id="@+id/doctipsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_homebuttons"
+            android:elevation="2dp"
+            android:src="@drawable/tipsbutton" />
+
+
+        <ImageButton
+            android:id="@+id/docfaqButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/shape_homebuttons"
+            android:elevation="2dp"
+            android:src="@drawable/faqbutton" />
+
     </LinearLayout>
 </LinearLayout>

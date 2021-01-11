@@ -7,56 +7,64 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_marginStart="15dp">
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="5dp"
-            android:weightSum="6"
-            android:gravity="start">
+            android:gravity="start"
+            android:weightSum="8">
 
             <TextView
-                android:id="@+id/trackSerialNo"
+                android:id="@+id/appointmentSerialNo"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/allerta"
-                android:gravity="center"
+                android:gravity="start"
                 android:paddingVertical="5dp"
-                android:paddingEnd="15dp"
                 android:text="Sr."
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/trackSerialName"
+                android:id="@+id/appointmentSerialName"
                 android:layout_width="0dp"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:fontFamily="@font/allerta"
                 android:gravity="start"
-                android:paddingVertical="5dp"
+                android:padding="5dp"
                 android:text="P Name"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/trackSerialTime"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/allerta"
-                android:gravity="center"
-                android:paddingVertical="5dp"
-                android:paddingStart="15dp"
-                android:text="Time"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/trackSerialDoctor"
+                android:id="@+id/appointmentSerialTime"
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:fontFamily="@font/allerta"
                 android:gravity="center"
                 android:paddingVertical="5dp"
-                android:text="Doctor"
+                android:paddingEnd="25dp"
+                android:text="Time"
                 android:textSize="18sp" />
+
+            <ImageButton
+                android:id="@+id/appointmentDone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:paddingVertical="5dp"
+                android:src="@drawable/done" />
+
+            <ImageButton
+                android:id="@+id/appointmentDiscard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:paddingVertical="5dp"
+                android:src="@drawable/discard" />
         </TableRow>
     </TableLayout>
 </LinearLayout>

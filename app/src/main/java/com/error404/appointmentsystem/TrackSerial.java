@@ -48,9 +48,14 @@ public class TrackSerial extends AppCompatActivity {
 
         departmentSpinnerTrack = findViewById(R.id.departmentSpinnerTrack);
         departments = new ArrayList<>();
+        departments.add(0, "Select Department");
         deptadapter = new ArrayAdapter<String>(TrackSerial.this, R.layout.simple_spinner_dropdown_item, R.id.simpleSpinView, departments);
         getdepartmentslist();
         departmentSpinnerTrack.setAdapter(deptadapter);
+
+        doctorSpinnerTrack = findViewById(R.id.doctorSpinnerTrack);
+        doctors = new ArrayList<>();
+        doctors.add(0, "Select Doctor");
 
         departmentSpinnerTrack.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -59,8 +64,7 @@ public class TrackSerial extends AppCompatActivity {
                 String deptname = departmentSpinnerTrack.getSelectedItem().toString();
 
                 referencedoc = FirebaseDatabase.getInstance().getReference("Departments").child(deptname);
-                doctorSpinnerTrack = findViewById(R.id.doctorSpinnerTrack);
-                doctors = new ArrayList<>();
+
                 doctadapter = new ArrayAdapter<String>(TrackSerial.this, R.layout.simple_spinner_dropdown_item, R.id.simpleSpinView, doctors);
                 getdoctorslist();
                 doctorSpinnerTrack.setAdapter(doctadapter);

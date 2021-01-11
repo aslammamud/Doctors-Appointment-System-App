@@ -16,6 +16,6 @@
         android:padding="8dp"
         android:text="Select"
         android:textColor="@color/colorBlack"
-        android:textSize="18sp" />
+        android:textSize="15sp" />
 
 </LinearLayout>

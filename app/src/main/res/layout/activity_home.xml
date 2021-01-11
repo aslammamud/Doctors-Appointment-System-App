@@ -3,119 +3,127 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorHint"
-    android:orientation="vertical">
+    android:background="@drawable/homebackground"
+    android:orientation="vertical"
+    android:weightSum="3">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/allerta"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/allerta"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="Home"
+            android:textSize="25sp">
+
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:gravity="center"
-        android:padding="20dp"
-        android:text="Home"
-        android:textSize="25sp">
+        android:orientation="vertical">
 
-    </TextView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/deptButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_homebuttons"
+                android:elevation="2dp"
+                android:src="@drawable/departmentsbutton" />
 
-        <Button
-            android:id="@+id/deptButton"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:background="@drawable/shape_card1"
-            android:fontFamily="@font/allerta"
-            android:gravity="center"
-            android:text="Departments"
-            android:textSize="18sp" />
+            <ImageButton
+                android:id="@+id/emergencyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/shape_homebuttons"
+                android:elevation="2dp"
+                android:src="@drawable/emergencybutton" />
 
-        <Button
-            android:id="@+id/advicesButton"
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/shape_card1"
-            android:fontFamily="@font/allerta"
-            android:gravity="center"
-            android:text="Advices"
-            android:textSize="18sp" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/trackButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_homebuttons"
+                android:elevation="2dp"
+                android:src="@drawable/trackserialbutton" />
+
+            <ImageButton
+                android:id="@+id/reviewButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/shape_homebuttons"
+                android:elevation="2dp"
+                android:src="@drawable/reviewbutton" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/tipsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_homebuttons"
+                android:elevation="2dp"
+                android:src="@drawable/tipsbutton" />
+
+
+            <ImageButton
+                android:id="@+id/faqButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/shape_homebuttons"
+                android:elevation="2dp"
+                android:src="@drawable/faqbutton" />
+
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/emergencyButton"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:background="@drawable/shape_card1"
-            android:fontFamily="@font/allerta"
-            android:gravity="center"
-            android:text="Emergency"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/tipsButton"
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/shape_card1"
-            android:fontFamily="@font/allerta"
-            android:gravity="center"
-            android:text="Tips"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/trackButton"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:background="@drawable/shape_card1"
-            android:fontFamily="@font/allerta"
-            android:gravity="center"
-            android:text="Track Serial"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/faqButton"
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/shape_card1"
-            android:fontFamily="@font/allerta"
-            android:gravity="center"
-            android:text="FAQ"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="#46dc88"
+            android:background="@color/colorNavigation"
             app:menu="@menu/bottom_navigation_menu" />
     </LinearLayout>
 </LinearLayout>

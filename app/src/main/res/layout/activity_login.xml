@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
+    android:background="@drawable/loginbackground"
     android:orientation="vertical">
 
     <LinearLayout
@@ -13,98 +14,111 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/allerta"
-            android:paddingBottom="20dp"
-            android:text="Login"
-            android:textSize="32sp" />
-
-        <EditText
-            android:id="@+id/userID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="id:30***66"
-            android:paddingVertical="10dp" />
-
-        <EditText
-            android:id="@+id/userPass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="password"
-            android:paddingVertical="10dp" />
-
+        android:paddingHorizontal="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingVertical="20dp">
+            android:background="@drawable/shape_login"
+            android:elevation="10dp"
+            android:orientation="vertical">
 
-            <Switch
-                android:id="@+id/rememberMeSwitch"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="false"
-                android:fontFamily="@font/allerta"
-                android:text="Remember"
-                android:textColor="@color/colorformtitleline"
-                android:textOff="Off"
-                android:textOn="On"
-                android:textSize="16sp"
-                tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-            <Switch
-                android:id="@+id/adminSwitch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:fontFamily="@font/allerta"
-                android:text="I'm Admin"
-                android:textColor="@color/colorformtitleline"
-                android:textOff="Off"
-                android:textOn="On"
-                android:textSize="18sp"
-                tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-            <Button
-                android:id="@+id/login"
-                android:layout_width="200dp"
-                android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:background="@color/colorAcceptButton"
+                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/allerta"
                 android:text="Login"
-                android:textAllCaps="false" />
+                android:textSize="32sp" />
 
-            <Button
-                android:id="@+id/loginCancel"
-                android:layout_width="200dp"
-                android:layout_height="35dp"
+            <EditText
+                android:id="@+id/userID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@color/colorDiscardButton"
-                android:fontFamily="@font/allerta"
-                android:text="Cancel"
-                android:textAllCaps="false" />
+                android:ems="10"
+                android:gravity="center"
+                android:hint="id:30***66"
+                android:paddingVertical="10dp" />
 
+            <EditText
+                android:id="@+id/userPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="password"
+                android:paddingVertical="10dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="20dp">
+
+                <!--
+                <Switch
+                    android:id="@+id/rememberMeSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:fontFamily="@font/allerta"
+                    android:text="Remember"
+                    android:textColor="@color/colorformtitleline"
+                    android:textOff="Off"
+                    android:textOn="On"
+                    android:textSize="16sp"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+                -->
+
+                <Switch
+                    android:id="@+id/adminSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:fontFamily="@font/allerta"
+                    android:text="I'm Admin"
+                    android:textColor="@color/colorformtitleline"
+                    android:textOff="Off"
+                    android:textOn="On"
+                    android:textSize="18sp"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                <Button
+                    android:id="@+id/login"
+                    android:layout_width="200dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/colorAcceptButton"
+                    android:fontFamily="@font/allerta"
+                    android:text="Login"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/loginCancel"
+                    android:layout_width="200dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/colorDiscardButton"
+                    android:fontFamily="@font/allerta"
+                    android:text="Cancel"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

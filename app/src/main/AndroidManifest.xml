@@ -19,12 +19,17 @@
 
         <activity android:name=".LoginActivity" />
         <activity android:name=".DoctorHomeActivity" />
+        <activity android:name=".Appointments" />
         <activity android:name=".AdminHomeActivity" />
         <activity android:name=".AddDoctors" />
         <activity android:name=".GetAppointment" />
         <activity android:name=".GetAppointmentConfirmation" />
         <activity android:name=".Feedback" />
         <activity android:name=".DoctorsList" />
+        <activity android:name=".Emergency" />
+        <activity android:name=".Tips" />
+        <activity android:name=".FAQ" />
+        <activity android:name=".Reviews" />
         <activity android:name=".Departments" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".TrackSerial" />

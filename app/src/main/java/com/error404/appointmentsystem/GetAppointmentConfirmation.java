@@ -91,7 +91,7 @@ public class GetAppointmentConfirmation extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                GetAppointmentItem DataItem = new GetAppointmentItem(PatientName, Age, Gender, Bloodgroup, Symptoms, Phone, Address, Date, Time, Doctorname, Doctorid);
+                AppointmentItem DataItem = new AppointmentItem(PatientName, Age, Gender, Bloodgroup, Symptoms, Phone, Address, Date, Time, Doctorname, Doctorid);
 
                 myRef.child(String.valueOf(maxid + 1)).setValue(DataItem).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

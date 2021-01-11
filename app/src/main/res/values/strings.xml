@@ -3,7 +3,7 @@
     <string name="dcSpec">Speciality : </string>
     <string name="spec_1">Associate Consultant, Cardiology</string>
     <string name="dc_degree">MBBS, D Card (London),Msc Cardiology (UK)</string>
-    <string name="dc_phn_1">(880-2) 8144400, 8142431</string>
+    <string name="dc_phn_1">814 4400 8142431</string>
     <string name="dc_email_1">info@squarehospital.com</string>
 
     <string-array name="department_names_array">
@@ -37,4 +37,53 @@
         <item>Dentistry</item>
         <item>Oral Surg</item>
     </string-array>
+
+    <string-array name="emergency_list_array">
+        <item>Hospital: 01716471766</item>
+        <item>Medicine: 017000006</item>
+        <item>Betha: 017000006</item>
+        <item>Kata: 017000006</item>
+        <item>Shelai: 017000006</item>
+        <item>Surgery: 017000006</item>
+    </string-array>
+
+    <string-array name="tips_array">
+        <item>
+            Tip no-1: Use This App Always
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Nullam feugiat quam rhoncus erat tincidunt vestibulum.
+            Quisque id ligula ex. Phasellus tortor magna, auctor vitae rhoncus ac, scelerisque at lectus.
+            Ut sed efficitur libero. Maecenas egestas nibh eu velit efficitur, quis aliquam tortor iaculis.
+        </item>
+        <item>
+            Tip no-2: Be Careful
+            Integer cursus purus dui, in gravida lorem commodo ac.
+            Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+        </item>
+        <item>
+            Tip no-3: Keep Wifi On
+            Integer volutpat non mi hendrerit iaculis. Fusce faucibus a justo ac egestas.
+            Duis varius urna at sem efficitur semper. Fusce elementum vulputate mi, eget euismod ex aliquam ac.
+        </item>
+    </string-array>
+
+    <string-array name="faqs_array">
+        <item>
+            Question: 1
+            Answer: 1
+        </item>
+        <item>
+            Question: 2
+            Answer: 2
+        </item>
+        <item>
+            Question: 3
+            Answer: 3
+        </item>
+        <item>
+            Question: 4
+            Answer: 4
+        </item>
+    </string-array>
+
 </resources>

@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:gravity="start"
+        android:gravity="center"
         android:layout_marginTop="60dp"
         android:paddingHorizontal="35dp"
         android:orientation="horizontal">
@@ -35,17 +35,17 @@
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        android:paddingHorizontal="30dp">
+        android:gravity="center"
+        android:paddingHorizontal="35dp">
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_gravity="center"
-            android:fontFamily="@font/allerta"
-            android:padding="8dp"
-            android:text="Department "
-            android:textColor="@color/colorBlack"
-            android:textSize="20sp" />
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/departmentlogo" />
+
 
         <Spinner
             android:id="@+id/departmentSpinnerTrack"
@@ -62,17 +62,16 @@
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        android:paddingHorizontal="30dp">
+        android:gravity="center"
+        android:paddingHorizontal="35dp">
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_gravity="center"
-            android:fontFamily="@font/allerta"
-            android:padding="8dp"
-            android:text="Doctor "
-            android:textColor="@color/colorBlack"
-            android:textSize="20sp" />
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/doctorlogo" />
 
         <Spinner
             android:id="@+id/doctorSpinnerTrack"
@@ -89,6 +88,7 @@
         android:layout_height="40dp"
         android:layout_marginVertical="10dp"
         android:orientation="horizontal"
+        android:gravity="center"
         android:paddingHorizontal="30dp">
 
         <ImageView
@@ -100,21 +100,13 @@
             android:scaleType="centerCrop"
             android:src="@drawable/clock" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/allerta"
-            android:paddingHorizontal="5dp"
-            android:text="Time"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp" />
 
         <RadioGroup
             android:id="@+id/radioTimeTrackSlot"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
+            android:layout_marginStart="10dp"
             android:orientation="horizontal">
 
             <RadioButton
@@ -147,7 +139,7 @@
         android:layout_gravity="center"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="40dp"
         android:background="@color/colorAcceptButton"
         android:fontFamily="@font/allerta"
         android:text="Track"

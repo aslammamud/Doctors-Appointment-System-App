@@ -22,7 +22,7 @@ import java.util.List;
 public class TrackSerialList extends AppCompatActivity {
     private RecyclerView trackSerialRecylcerview;
     private TrackSerialListAdapter adapter;
-    private List<GetAppointmentItem> items;
+    private List<AppointmentItem> items;
     private Button goBackButton;
 
     @Override
@@ -32,11 +32,11 @@ public class TrackSerialList extends AppCompatActivity {
 
         goBackButton = findViewById(R.id.goBackButton);
 
-        trackSerialRecylcerview = findViewById(R.id.trackSerialRecylcerview);
+        trackSerialRecylcerview = findViewById(R.id.appointmentSerialRecylcerview);
         trackSerialRecylcerview.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         trackSerialRecylcerview.setLayoutManager(layoutManager);
-        items = new ArrayList<GetAppointmentItem>();
+        items = new ArrayList<AppointmentItem>();
 
         final String Date = getIntent().getStringExtra("DateTrack");
         final String Time = getIntent().getStringExtra("TimeTrack");
@@ -50,7 +50,7 @@ public class TrackSerialList extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 items.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    GetAppointmentItem DataItem = snapshot.getValue(GetAppointmentItem.class);
+                    AppointmentItem DataItem = snapshot.getValue(AppointmentItem.class);
                     items.add(DataItem);
                 }
                 adapter = new TrackSerialListAdapter(getApplicationContext(), items);

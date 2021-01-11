@@ -4,26 +4,36 @@ public class FeedbackItem {
     String namefeedback;
     String emailfeedback;
     String ratingfeedback;
-    String ratingdoctor;
+    String ratingdoctorid;
+    String ratingdoctorname;
     String messagefeedback;
 
     public FeedbackItem() {
     }
 
-    public FeedbackItem(String namefeedback, String emailfeedback, String ratingfeedback, String ratingdoctor, String messagefeedback) {
+    public FeedbackItem(String namefeedback, String emailfeedback, String ratingfeedback, String ratingdoctorid, String ratingdoctorname, String messagefeedback) {
         this.namefeedback = namefeedback;
         this.emailfeedback = emailfeedback;
         this.ratingfeedback = ratingfeedback;
         this.messagefeedback = messagefeedback;
-        this.ratingdoctor = ratingdoctor;
+        this.ratingdoctorid = ratingdoctorid;
+        this.ratingdoctorname = ratingdoctorname;
     }
 
-    public String getRatingdoctor() {
-        return ratingdoctor;
+    public String getRatingdoctorid() {
+        return ratingdoctorid;
     }
 
-    public void setRatingdoctor(String ratingdoctor) {
-        this.ratingdoctor = ratingdoctor;
+    public void setRatingdoctorid(String ratingdoctorid) {
+        this.ratingdoctorid = ratingdoctorid;
+    }
+
+    public String getRatingdoctorname() {
+        return ratingdoctorname;
+    }
+
+    public void setRatingdoctorname(String ratingdoctorname) {
+        this.ratingdoctorname = ratingdoctorname;
     }
 
     public String getNamefeedback() {

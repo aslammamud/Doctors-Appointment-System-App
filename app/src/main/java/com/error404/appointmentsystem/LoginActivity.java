@@ -29,7 +29,8 @@ import io.paperdb.Paper;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText userID, userPass;
-    private Switch rememberMeSwitch, adminSwitch;
+    private Switch adminSwitch;
+    //private Switch rememberMeSwitch, adminSwitch;
     private Button login, loginCancel;
     private String parentDbName = "Doctors";
     private ProgressDialog loadingBar;
@@ -41,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
 
         userID = findViewById(R.id.userID);
         userPass = findViewById(R.id.userPass);
-        rememberMeSwitch = findViewById(R.id.rememberMeSwitch);
+        //rememberMeSwitch = findViewById(R.id.rememberMeSwitch);
         adminSwitch = findViewById(R.id.adminSwitch);
         login = findViewById(R.id.login);
         loadingBar = new ProgressDialog(this);
@@ -108,12 +109,21 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void AllowAccount(final String UserID, final String UserPass) {
+        /*
         if (rememberMeSwitch.isChecked()) {
             Paper.book().write(Prevalent.UserIdKey, UserID);
             Paper.book().write(Prevalent.UserPasswordKey, UserPass);
         }
+        */
+        Paper.book().write(Prevalent.UserIdKey, UserID);
+        Paper.book().write(Prevalent.UserPasswordKey, UserPass);
+
         if (adminSwitch.isChecked()) {
             parentDbName = "Admin";
+            Paper.book().write(Prevalent.ParentDB, parentDbName);
+        } else {
+            parentDbName = "Doctors";
+            Paper.book().write(Prevalent.ParentDB, parentDbName);
         }
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
@@ -130,13 +140,15 @@ public class LoginActivity extends AppCompatActivity {
                                 loadingBar.dismiss();
 
                                 Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
+                                finish();
                                 startActivity(intent);
                             } else if (parentDbName.equals("Doctors")) {
                                 Toast.makeText(LoginActivity.this, "logged in Successfully...", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
 
                                 Intent intent = new Intent(LoginActivity.this, DoctorHomeActivity.class);
-                                Prevalent.currentOnlineUser = usersData;
+                                intent.putExtra("DoctorID", UserID);
+                                finish();
                                 startActivity(intent);
                             }
 

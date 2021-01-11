@@ -40,7 +40,8 @@ public class Feedback extends AppCompatActivity {
         messageFeedback = findViewById(R.id.messageFeedback);
         ratingFeedback = findViewById(R.id.ratingFeedback);
 
-        final String ratingdoctor = getIntent().getStringExtra("DoctorID");
+        final String ratingdoctorid = getIntent().getStringExtra("DoctorID");
+        final String ratingdoctorname = getIntent().getStringExtra("DoctorName");
 
         ratingFeedback.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
@@ -57,7 +58,7 @@ public class Feedback extends AppCompatActivity {
                 String emailfeedback = emailFeedback.getText().toString();
                 String ratingfeedback = String.valueOf(rateValue);
                 String messagefeedback = messageFeedback.getText().toString();
-                FeedbackItem DataItem = new FeedbackItem(namefeedback, emailfeedback, ratingfeedback, ratingdoctor, messagefeedback);
+                FeedbackItem DataItem = new FeedbackItem(namefeedback, emailfeedback, ratingfeedback, ratingdoctorid, ratingdoctorname, messagefeedback);
 
                 myRef.child(namefeedback).setValue(DataItem).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

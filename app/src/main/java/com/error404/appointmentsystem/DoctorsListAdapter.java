@@ -66,8 +66,10 @@ public class DoctorsListAdapter extends RecyclerView.Adapter<DoctorsListAdapter.
             @Override
             public void onClick(View v) {
                 String sId = item.id;
+                String sName = item.name;
                 Intent intent = new Intent(v.getContext(), Feedback.class);
                 intent.putExtra("DoctorID", sId);
+                intent.putExtra("DoctorName", sName);
                 v.getContext().startActivity(intent);
             }
         });

@@ -5,7 +5,7 @@
     <color name="colorPrimaryDark">#00574B</color>
 
     <color name="colorAccent">#D81B60</color>
-    <color name="colorDivider">#FF5252</color>
+    <color name="colorLightPurple">#edebfc</color>
     <color name="colorCard">#6F6A6566</color>
     <color name="colorCard1">#FFFFFF</color>
     <color name="colorCard2">#AB69F0AE</color>
@@ -19,6 +19,7 @@
 
     <color name="colorWarningButton">#FFC400</color>
     <color name="colorAcceptButton">#46dc88</color>
+    <color name="colorNavigation">#46dc88</color>
     <color name="colorDiscardButton">#D5F44336</color>
     <color name="appMainBackground">#FAFF0D</color>
     <color name="colorTransparent">#00000000</color>

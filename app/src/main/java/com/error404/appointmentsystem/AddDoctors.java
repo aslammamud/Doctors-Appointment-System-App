@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.ArrayAdapter;
@@ -22,7 +21,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -77,7 +75,7 @@ public class AddDoctors extends AppCompatActivity implements View.OnClickListene
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                finish();
             }
         });
 
@@ -116,28 +114,6 @@ public class AddDoctors extends AppCompatActivity implements View.OnClickListene
             }
         });
 
-        //Navigation_Starts_here
-
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setSelectedItemId(R.id.navAdminPage);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.navDashboardPage:
-                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                        finish();
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.navAdminPage:
-                        return true;
-                }
-                return false;
-            }
-        });
-
-        //Navigation_Ends_here
 
     }
 

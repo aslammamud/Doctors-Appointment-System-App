@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Departments">
+    tools:context=".Emergency">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -15,34 +14,18 @@
         android:layout_marginBottom="5dp">
 
         <TextView
+            android:id="@+id/ListType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:gravity="center"
-            android:text="Departments"
-            android:textSize="25sp"
             android:fontFamily="@font/allerta"
-            android:textColor="@color/colorBlack" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
-
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchViewID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusable="false"
-            android:paddingRight="20dp"
-            app:defaultQueryHint="Search For Departments"
-            app:iconifiedByDefault="false" />
+            android:gravity="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="25sp" />
     </LinearLayout>
 
     <ListView
-        android:id="@+id/listViewDept"
+        android:id="@+id/listViewEmergency"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

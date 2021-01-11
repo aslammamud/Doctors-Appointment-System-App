@@ -13,9 +13,9 @@ import java.util.List;
 
 public class TrackSerialListAdapter extends RecyclerView.Adapter<TrackSerialListAdapter.ViewHolder> {
     private final Context context;
-    private final List<GetAppointmentItem> items;
+    private final List<AppointmentItem> items;
 
-    public TrackSerialListAdapter(Context context, List<GetAppointmentItem> items) {
+    public TrackSerialListAdapter(Context context, List<AppointmentItem> items) {
         this.context = context;
         this.items = items;
     }
@@ -33,7 +33,7 @@ public class TrackSerialListAdapter extends RecyclerView.Adapter<TrackSerialList
 
     @Override
     public void onBindViewHolder(@NonNull TrackSerialListAdapter.ViewHolder holder, int position) {
-        final GetAppointmentItem item = items.get(position);
+        final AppointmentItem item = items.get(position);
 
         holder.trackSerialNo.setText(String.valueOf(position + 1));
         holder.trackSerialName.setText(item.name);

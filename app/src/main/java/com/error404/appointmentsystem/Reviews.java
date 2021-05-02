@@ -1,6 +1,8 @@
 package com.error404.appointmentsystem;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,10 +23,20 @@ public class Reviews extends AppCompatActivity {
     private ReviewsAdapter adapter;
     private List<FeedbackItem> items;
     private DatabaseReference reference;
+    private ImageButton goBackReviews;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reviews);
+
+        goBackReviews = findViewById(R.id.goBackReviews);
+        goBackReviews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         recylerReview = findViewById(R.id.recylerReview);
         recylerReview.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);

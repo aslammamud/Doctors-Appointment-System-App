@@ -14,7 +14,7 @@ import io.paperdb.Paper;
 
 public class AdminHomeActivity extends AppCompatActivity {
 
-    private ImageButton adddocButton, removedocButton, historyButton, reviewButton;
+    private ImageButton adddocButton, removedocButton, historyButton, reviewButton, adminLogout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         removedocButton = findViewById(R.id.removedocButton);
         historyButton = findViewById(R.id.historyButton);
         reviewButton = findViewById(R.id.adminreviewButton);
+        adminLogout = findViewById(R.id.adminLogout);
 
 
         adddocButton.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +42,31 @@ public class AdminHomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AdminHomeActivity.this, Reviews.class);
                 startActivity(intent);
+            }
+        });
+
+        adminLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(AdminHomeActivity.this);
+                builder.setMessage("Are you sure you want to logout?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Paper.book().write(Prevalent.UserIdKey, "id");
+                                Paper.book().write(Prevalent.UserPasswordKey, "pass");
+                                Paper.book().write(Prevalent.ParentDB, "user");
+                                startActivity(new Intent(AdminHomeActivity.this, HomeActivity.class));
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
             }
         });
     }

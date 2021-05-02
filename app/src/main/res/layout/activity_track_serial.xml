@@ -6,9 +6,38 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="left">
+
+        <ImageButton
+            android:id="@+id/getbackTrack"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/colorTransparent"
+            android:paddingLeft="20dp"
+            android:src="@drawable/goback" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/allerta"
+            android:gravity="center"
+            android:paddingEnd="50dp"
+            android:text="Select Appointment Informations"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:gravity="center"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:paddingHorizontal="35dp"
         android:orientation="horizontal">
 
@@ -142,7 +171,7 @@
         android:layout_marginTop="40dp"
         android:background="@color/colorAcceptButton"
         android:fontFamily="@font/allerta"
-        android:text="Track"
+        android:text="Next"
         android:textColor="@color/colorCard1"
         android:textSize="22sp" />
 

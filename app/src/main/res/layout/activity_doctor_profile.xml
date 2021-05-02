@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/showMyProfile"
+        android:id="@+id/showProfileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -183,36 +183,70 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/allerta"
+                android:text="Password :  "
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/passText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/allerta"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="enter email"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:paddingHorizontal="50dp"
         android:paddingVertical="20dp">
 
         <Button
             android:id="@+id/saveUpdatedProfile"
-            android:layout_width="149dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@color/colorAcceptButton"
-            android:text="Save"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorNavigation"
+            android:fontFamily="@font/allerta"
+            android:padding="10dp"
+            android:text="Save Profile"
             android:textAllCaps="false"
+            android:textSize="16sp"
             android:visibility="gone" />
 
         <Button
             android:id="@+id/cancelUpdating"
-            android:layout_width="170dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:background="@color/colorDiscardButton"
+            android:fontFamily="@font/allerta"
             android:text="Cancel"
             android:textAllCaps="false"
+            android:textSize="16sp"
             android:visibility="gone" />
 
     </LinearLayout>
@@ -238,7 +272,7 @@
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/goBack"
+            android:id="@+id/goBackProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorAcceptButton"

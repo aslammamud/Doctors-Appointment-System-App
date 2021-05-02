@@ -152,11 +152,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1" />
-
     <Button
         android:id="@+id/goBackButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_gravity="bottom"
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
@@ -165,5 +164,5 @@
         android:fontFamily="@font/allerta"
         android:text="Go Back"
         android:textColor="@color/colorCard1"
-        android:textSize="22sp" />
+        android:textSize="18sp" />
 </LinearLayout>

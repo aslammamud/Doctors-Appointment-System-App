@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/advent_pro</item>
+        <item>@font/advent_pro_light</item>
         <item>@font/allerta</item>
+        <item>@font/antic_slab</item>
         <item>@font/bangers</item>
     </array>
 </resources>

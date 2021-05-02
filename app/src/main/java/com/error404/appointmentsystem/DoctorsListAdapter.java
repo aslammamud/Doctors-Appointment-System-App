@@ -17,12 +17,16 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class DoctorsListAdapter extends RecyclerView.Adapter<DoctorsListAdapter.ViewHolder> {
     private final Context context;
     private final List<DoctorsItem> items;
-    private Uri imageUri;
 
     public DoctorsListAdapter(Context context, List<DoctorsItem> items) {
         this.context = context;
@@ -41,10 +45,9 @@ public class DoctorsListAdapter extends RecyclerView.Adapter<DoctorsListAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DoctorsListAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final DoctorsListAdapter.ViewHolder holder, int position) {
         final DoctorsItem item = items.get(position);
 
-        //Picasso.get().load(item.imageUri).fit().centerCrop().into(holder.showPicture);
         holder.showName.setText(item.name);
         holder.showSpeciality.setText(item.speciality);
         holder.showDegree.setText(item.degree);
@@ -73,6 +76,18 @@ public class DoctorsListAdapter extends RecyclerView.Adapter<DoctorsListAdapter.
                 v.getContext().startActivity(intent);
             }
         });
+
+
+        StorageReference storageRef =
+                FirebaseStorage.getInstance().getReference();
+
+        storageRef.child("Departments/Doctors/").child(item.imageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(holder.showPicture);
+            }
+        });
+
 
         boolean isExpended = items.get(position).isExpanded();
         holder.expandableView.setVisibility(isExpended ? View.VISIBLE : View.GONE);

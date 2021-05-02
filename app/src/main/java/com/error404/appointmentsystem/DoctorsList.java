@@ -1,6 +1,8 @@
 package com.error404.appointmentsystem;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DoctorsList extends AppCompatActivity {
+    private ImageButton goBackDoctorsList;
     private RecyclerView recyclerView;
     private DoctorsListAdapter adapter;
     private List<DoctorsItem> items;
@@ -26,6 +29,9 @@ public class DoctorsList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctorslist);
+
+
+        goBackDoctorsList = findViewById(R.id.goBackDoctorsList);
         recyclerView = findViewById(R.id.recylerView);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
@@ -52,6 +58,13 @@ public class DoctorsList extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+
+        goBackDoctorsList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }

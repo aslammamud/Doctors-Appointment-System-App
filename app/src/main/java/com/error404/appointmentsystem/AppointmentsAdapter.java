@@ -52,10 +52,8 @@ public class AppointmentsAdapter extends RecyclerView.Adapter<AppointmentsAdapte
             @Override
             public void onClick(final View view) {
                 Toast.makeText(view.getContext(), "Completed!", Toast.LENGTH_SHORT).show();
-                items.remove(position);
-                notifyItemRemoved(position);
 
-                Query patientQuery = ref.child("Appointment Completed!").child(item.date).child(item.time).orderByChild("name").equalTo(item.name);
+              Query patientQuery = ref.child("Appointments").child(item.date).child(item.time).orderByChild("name").equalTo(item.name);
 
                 patientQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -69,6 +67,9 @@ public class AppointmentsAdapter extends RecyclerView.Adapter<AppointmentsAdapte
                     public void onCancelled(DatabaseError databaseError) {
                     }
                 });
+
+                items.remove(position);
+                notifyItemRemoved(position);
 
             }
         });
@@ -80,7 +81,7 @@ public class AppointmentsAdapter extends RecyclerView.Adapter<AppointmentsAdapte
                 items.remove(position);
                 notifyItemRemoved(position);
 
-                Query patientQuery = ref.child("Appointments").child(item.date).child(item.time).orderByChild("name").equalTo(item.name);
+ /*               Query patientQuery = ref.child("Appointments").child(item.date).child(item.time).orderByChild("name").equalTo(item.name);
 
                 patientQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -93,7 +94,7 @@ public class AppointmentsAdapter extends RecyclerView.Adapter<AppointmentsAdapte
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                     }
-                });
+                });*/
 
             }
         });

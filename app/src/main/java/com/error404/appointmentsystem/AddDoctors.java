@@ -1,5 +1,6 @@
 package com.error404.appointmentsystem;
 
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,24 +22,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.UUID;
+
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.makeText;
 
 public class AddDoctors extends AppCompatActivity implements View.OnClickListener {
-    private static final int IMAGE_REQUEST = 1;
     String[] departmentNames;
     private EditText name, id, phone, email, speciality, degree;
     private Button addNewDoctor, goBack, chooseImage, removeImage;
     private ImageView imageHolder;
     private Spinner departmentSpinner;
     private Uri imageUri;
+    private String extension;
     private DatabaseReference myRef;
     private StorageReference myRef2;
 
@@ -65,6 +69,13 @@ public class AddDoctors extends AppCompatActivity implements View.OnClickListene
 
         chooseImage.setOnClickListener(this);
 
+        removeImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
         departmentNames = getResources().getStringArray(R.array.department_names_array);
         departmentSpinner = findViewById(R.id.departmentSpinner);
 
@@ -82,35 +93,8 @@ public class AddDoctors extends AppCompatActivity implements View.OnClickListene
         addNewDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myRef2 = myRef2.child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
-                myRef2.putFile(imageUri)
-                        .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                // Get a URL to the uploaded content
-                                Map<String, Object> Values = new HashMap<>();
-                                Values.put("name", name.getText().toString());
-                                Values.put("id", id.getText().toString());
-                                Values.put("phone", phone.getText().toString());
-                                Values.put("email", email.getText().toString());
-                                Values.put("department", departmentSpinner.getSelectedItem().toString());
-                                Values.put("degree", degree.getText().toString());
-                                Values.put("speciality", speciality.getText().toString());
-                                Values.put("imageName", taskSnapshot.getStorage().getDownloadUrl().toString());
-                                myRef.child(departmentSpinner.getSelectedItem().toString()).child(id.getText().toString()).setValue(Values);
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception exception) {
-                                // Handle unsuccessful uploads
-                                // ...
-                            }
-                        });
 
-                finish();
-                startActivity(getIntent());
-                Toast.makeText(AddDoctors.this, "New Doctor Profile Created successfully!", Toast.LENGTH_SHORT).show();
+                uploadData();
             }
         });
 
@@ -126,7 +110,7 @@ public class AddDoctors extends AppCompatActivity implements View.OnClickListene
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, IMAGE_REQUEST);
+        startActivityForResult(intent, 1);
     }
 
     //image extension pawar jonno eita lekhsi
@@ -139,11 +123,64 @@ public class AddDoctors extends AppCompatActivity implements View.OnClickListene
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
             imageUri = data.getData();
-            Picasso.get().load(imageUri).into(imageHolder);
+            //imageHolder.setVisibility(View.VISIBLE);
+            imageHolder.setImageURI(imageUri);
+            extension = getFileExtension(imageUri);
         }
+    }
+
+    public void uploadData() {
+        final ProgressDialog pd = new ProgressDialog(AddDoctors.this);
+        pd.setTitle("Uploading Picture...");
+        pd.show();
+        final String randomKey = UUID.randomUUID().toString();
+        final StorageReference mountainImagesRef = myRef2.child("Doctors/" + randomKey + "." + extension);
+
+        String Name = name.getText().toString();
+        String ID = id.getText().toString();
+        String Phone = phone.getText().toString();
+        String Email = email.getText().toString();
+        String Department = departmentSpinner.getSelectedItem().toString();
+        String Degree = degree.getText().toString();
+        String Speciality = speciality.getText().toString();
+        String Image = randomKey + "." + extension;
+        String Password = speciality.getText().toString();
+
+        DoctorsItem DataItem = new DoctorsItem(Name, ID, Email, Phone, Degree, Speciality, Image, Password);
+
+        myRef.child(Department).child(Name).setValue(DataItem).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                makeText(getApplicationContext(), "New doctor successfully added!", LENGTH_LONG).show();
+                mountainImagesRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        pd.dismiss();
+                        Snackbar.make(findViewById(android.R.id.content), "Doctors Picture Uploaded Successfully!", Snackbar.LENGTH_LONG).show();
+                        finish();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        pd.dismiss();
+                        Toast.makeText(getApplicationContext(), "Failed To Upload Doctors Picture", Toast.LENGTH_LONG).show();
+                    }
+                }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                        double progressPercent = (100.00 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+                        pd.setMessage("Progress: " + (int) progressPercent + "%");
+                    }
+                });
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                makeText(getApplicationContext(), "Error! Try again", LENGTH_LONG).show();
+            }
+        });
     }
 
 

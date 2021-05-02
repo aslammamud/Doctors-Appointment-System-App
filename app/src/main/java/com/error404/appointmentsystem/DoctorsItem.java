@@ -8,14 +8,13 @@ public class DoctorsItem {
     String degree;
     String speciality;
     String imageName;
-    String imageUri;
     String password;
     boolean expanded;
 
     public DoctorsItem() {
     }
 
-    public DoctorsItem(String name, String id, String email, String phone, String degree, String speciality, String imageName, String imageUri, String password) {
+    public DoctorsItem(String name, String id, String email, String phone, String degree, String speciality, String imageName, String password) {
         this.name = name;
         this.id = id;
         this.email = email;
@@ -23,7 +22,6 @@ public class DoctorsItem {
         this.degree = degree;
         this.speciality = speciality;
         this.imageName = imageName;
-        this.imageUri = imageUri;
         this.password = password;
         this.expanded = false;
     }
@@ -84,12 +82,12 @@ public class DoctorsItem {
         this.imageName = imageName;
     }
 
-    public String getImageUri() {
-        return imageUri;
+    public String getPassword() {
+        return password;
     }
 
-    public void setImageUri(String imageUri) {
-        this.imageUri = imageUri;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public boolean isExpanded() {
@@ -98,13 +96,5 @@ public class DoctorsItem {
 
     public void setExpanded(boolean expanded) {
         this.expanded = expanded;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

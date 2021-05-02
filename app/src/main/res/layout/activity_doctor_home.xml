@@ -2,33 +2,49 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/homebackground"
-    android:orientation="vertical"
-    android:weightSum="3">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:orientation="vertical">
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="left">
 
         <TextView
+            android:layout_width="wrap_content"
             android:id="@+id/doctorNameShow"
-            android:layout_width="match_parent"
+            android:layout_margin="5dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:fontFamily="@font/allerta"
-            android:gravity="center"
-            android:padding="20dp"
             android:text="Home"
-            android:textSize="25sp">
+            android:gravity="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="25sp" />
 
-        </TextView>
+        <ImageButton
+            android:id="@+id/doctorLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/colorTransparent"
+            android:paddingRight="20dp"
+            android:src="@drawable/logout" />
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="180dp"
+        android:layout_gravity="center"
+        android:src="@drawable/homebackground" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:paddingTop="10dp"
         android:orientation="horizontal"
         android:padding="5dp">
 
@@ -41,69 +57,32 @@
             android:src="@drawable/appointmentsbutton" />
 
         <ImageButton
-            android:id="@+id/docdeptButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/shape_homebuttons"
-            android:elevation="2dp"
-            android:src="@drawable/departmentsbutton" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:padding="5dp">
-
-        <ImageButton
             android:id="@+id/doctrackButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/shape_homebuttons"
             android:elevation="2dp"
             android:src="@drawable/trackserialbutton" />
 
-
-        <ImageButton
-            android:id="@+id/docemergencyButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/shape_homebuttons"
-            android:elevation="2dp"
-            android:src="@drawable/emergencybutton" />
-
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:paddingTop="10dp"
         android:orientation="horizontal"
         android:padding="5dp">
 
         <ImageButton
-            android:id="@+id/doctipsButton"
+            android:id="@+id/doctorProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_homebuttons"
             android:elevation="2dp"
-            android:src="@drawable/tipsbutton" />
-
-
-        <ImageButton
-            android:id="@+id/docfaqButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/shape_homebuttons"
-            android:elevation="2dp"
-            android:src="@drawable/faqbutton" />
+            android:src="@drawable/profile" />
 
     </LinearLayout>
+
+
 </LinearLayout>

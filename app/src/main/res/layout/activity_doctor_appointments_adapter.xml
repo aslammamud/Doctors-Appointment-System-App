@@ -21,8 +21,7 @@
                 android:fontFamily="@font/allerta"
                 android:gravity="start"
                 android:padding="5dp"
-                android:text="Sr."
-                android:textSize="18sp" />
+                android:text="Sr." />
 
             <TextView
                 android:id="@+id/trackSerialName"
@@ -31,8 +30,7 @@
                 android:fontFamily="@font/allerta"
                 android:gravity="start"
                 android:padding="5dp"
-                android:text="P Name"
-                android:textSize="18sp" />
+                android:text="P Name" />
 
             <TextView
                 android:id="@+id/trackSerialTime"
@@ -41,8 +39,7 @@
                 android:fontFamily="@font/allerta"
                 android:gravity="start"
                 android:padding="5dp"
-                android:text="Time"
-                android:textSize="18sp" />
+                android:text="Time" />
 
             <TextView
                 android:id="@+id/trackSerialDoctor"
@@ -51,8 +48,7 @@
                 android:fontFamily="@font/allerta"
                 android:gravity="start"
                 android:padding="5dp"
-                android:text="Doctor"
-                android:textSize="18sp" />
+                android:text="Doctor" />
         </TableRow>
     </TableLayout>
 </LinearLayout>

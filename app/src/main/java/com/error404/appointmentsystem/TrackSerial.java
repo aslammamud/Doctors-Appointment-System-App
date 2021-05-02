@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -31,6 +32,7 @@ public class TrackSerial extends AppCompatActivity {
 
     DatePickerDialog DatePicker;
     private Button trackSerialButton;
+    private ImageButton getbackTrack;
     private EditText selectDateTrack;
     private RadioGroup radioTimeTrackSlot;
     private RadioButton radioTimeButtonTrack;
@@ -43,6 +45,14 @@ public class TrackSerial extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_track_serial);
+
+        getbackTrack = findViewById(R.id.getbackTrack);
+        getbackTrack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         reference = FirebaseDatabase.getInstance().getReference("Departments");
 

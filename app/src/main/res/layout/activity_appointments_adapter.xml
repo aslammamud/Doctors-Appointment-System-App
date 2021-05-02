@@ -24,8 +24,7 @@
                 android:fontFamily="@font/allerta"
                 android:gravity="start"
                 android:paddingVertical="5dp"
-                android:text="Sr."
-                android:textSize="18sp" />
+                android:text="Sr." />
 
             <TextView
                 android:id="@+id/appointmentSerialName"
@@ -34,8 +33,7 @@
                 android:fontFamily="@font/allerta"
                 android:gravity="start"
                 android:padding="5dp"
-                android:text="P Name"
-                android:textSize="18sp" />
+                android:text="P Name" />
 
             <TextView
                 android:id="@+id/appointmentSerialTime"
@@ -45,8 +43,7 @@
                 android:gravity="center"
                 android:paddingVertical="5dp"
                 android:paddingEnd="25dp"
-                android:text="Time"
-                android:textSize="18sp" />
+                android:text="Time" />
 
             <ImageButton
                 android:id="@+id/appointmentDone"

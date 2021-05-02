@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ public class Feedback extends AppCompatActivity {
 
     float rateValue = 0;
     private Button sendFeedback, discardFeedback;
+    private ImageButton goBackFeedback;
     private EditText nameFeedback, emailFeedback, messageFeedback;
     private RatingBar ratingFeedback;
     private DatabaseReference myRef;
@@ -30,6 +32,14 @@ public class Feedback extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
+
+        goBackFeedback = findViewById(R.id.goBackFeedback);
+        goBackFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         myRef = FirebaseDatabase.getInstance().getReference("Feedbacks");
 

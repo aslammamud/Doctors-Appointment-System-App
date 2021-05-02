@@ -22,7 +22,7 @@ import io.paperdb.Paper;
 
 public class DoctorHomeActivity extends AppCompatActivity {
 
-    private ImageButton docappointmentsButton, docdeptButton, doctrackButton, doctipsButton, docemergencyButton, docfaqButton;
+    private ImageButton docappointmentsButton, doctrackButton, doctorProfile, doctorLogout;
     private TextView doctorNameShow;
     private DatabaseReference myRef;
     private String DocNameShow;
@@ -51,12 +51,17 @@ public class DoctorHomeActivity extends AppCompatActivity {
 
         doctorNameShow = findViewById(R.id.doctorNameShow);
         docappointmentsButton = findViewById(R.id.docappointmentsButton);
-        docdeptButton = findViewById(R.id.docdeptButton);
+        doctorProfile = findViewById(R.id.doctorProfile);
         doctrackButton = findViewById(R.id.doctrackButton);
-        docemergencyButton = findViewById(R.id.docemergencyButton);
-        doctipsButton = findViewById(R.id.doctipsButton);
-        docfaqButton = findViewById(R.id.docfaqButton);
+        doctorLogout = findViewById(R.id.doctorLogout);
 
+        doctrackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DoctorHomeActivity.this, TrackSerial.class);
+                startActivity(intent);
+            }
+        });
 
         docappointmentsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,42 +70,39 @@ public class DoctorHomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        doctorProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DoctorHomeActivity.this, DoctorProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        docdeptButton.setOnClickListener(new View.OnClickListener() {
+        doctorLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DoctorHomeActivity.this, Departments.class);
-                startActivity(intent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(DoctorHomeActivity.this);
+                builder.setMessage("Are you sure you want to logout?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Paper.book().write(Prevalent.UserIdKey, "id");
+                                Paper.book().write(Prevalent.UserPasswordKey, "pass");
+                                Paper.book().write(Prevalent.ParentDB, "user");
+                                finish();
+                                startActivity(new Intent(DoctorHomeActivity.this, LoginActivity.class));
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
             }
         });
-        doctrackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DoctorHomeActivity.this, TrackSerial.class);
-                startActivity(intent);
-            }
-        });
-        docemergencyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DoctorHomeActivity.this, Emergency.class);
-                startActivity(intent);
-            }
-        });
-        doctipsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DoctorHomeActivity.this, Tips.class);
-                startActivity(intent);
-            }
-        });
-        docfaqButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DoctorHomeActivity.this, FAQ.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
     @Override
@@ -124,7 +126,6 @@ public class DoctorHomeActivity extends AppCompatActivity {
                 });
         AlertDialog alert = builder.create();
         alert.show();
-
 
         //this.moveTaskToBack(true);
     }

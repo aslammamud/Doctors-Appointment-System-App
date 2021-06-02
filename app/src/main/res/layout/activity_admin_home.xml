@@ -21,6 +21,7 @@
             android:layout_margin="5dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:paddingStart="50dp"
             android:fontFamily="@font/allerta"
             android:text="Home"
             android:gravity="center"

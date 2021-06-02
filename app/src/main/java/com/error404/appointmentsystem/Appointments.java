@@ -33,7 +33,7 @@ import java.util.List;
 
 import io.paperdb.Paper;
 
-public class Appointments extends AppCompatActivity {
+public class Appointments extends AppCompatActivity implements AppointmentsAdapter.ClickInterface {
     DatePickerDialog DatePicker;
     private RecyclerView AppointmentRecylcerview;
     private AppointmentsAdapter adapter;
@@ -47,6 +47,8 @@ public class Appointments extends AppCompatActivity {
     private String Date, Time;
     private DatabaseReference myRef;
     private Query query;
+    DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+    String parent;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,7 +64,7 @@ public class Appointments extends AppCompatActivity {
         goBackButton = findViewById(R.id.goBackButton);
         AppointmentRecylcerview = findViewById(R.id.appointmentSerialRecylcerview);
         AppointmentRecylcerview.setHasFixedSize(true);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(Appointments.this, RecyclerView.VERTICAL, false);
         AppointmentRecylcerview.setLayoutManager(layoutManager);
         items = new ArrayList<AppointmentItem>();
 
@@ -119,12 +121,15 @@ public class Appointments extends AppCompatActivity {
                 int rb = radioAppointmentTTSlot.getCheckedRadioButtonId();
                 radio = findViewById(rb);
                 Time = radio.getText().toString();
-                Toast.makeText(Appointments.this, "Time: " + Time + "   Date: " + Date, Toast.LENGTH_SHORT).show();
 
-                query = FirebaseDatabase.getInstance().getReference("Appointments")
-                        .child(Date).child(Time).orderByChild("doctorid").equalTo(Docid);
+                try {
+                    query = FirebaseDatabase.getInstance().getReference().child("Appointments").child(Date).child(Time).orderByChild("doctorid").equalTo(Docid);
 
-                getmyQueryResults();
+                    getmyQueryResults();
+
+                } catch (NullPointerException e) {
+                    Toast.makeText(getApplicationContext(), "Please select date before search!", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -136,6 +141,7 @@ public class Appointments extends AppCompatActivity {
         });
     }
 
+
     public void getmyQueryResults() {
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -145,8 +151,6 @@ public class Appointments extends AppCompatActivity {
                     AppointmentItem DataItem = snapshot.getValue(AppointmentItem.class);
                     items.add(DataItem);
                 }
-                adapter = new AppointmentsAdapter(getApplicationContext(), items);
-                AppointmentRecylcerview.setAdapter(adapter);
             }
 
             @Override
@@ -154,11 +158,56 @@ public class Appointments extends AppCompatActivity {
 
             }
         });
+        adapter = new AppointmentsAdapter(Appointments.this, items, this);
+        AppointmentRecylcerview.setAdapter(adapter);
+        Toast.makeText(Appointments.this, "Scheduled appointments of this  " + Date + "are ...", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onBackPressed() {
         finish();
-        super.onBackPressed();
+    }
+
+/*    @Override
+    public void onItemClick(int position) {
+        String name = items.get(position).name.toString();
+        Log.d("name: ",name);
+    }*/
+
+
+    @Override
+    public void onItemClick(int position) {
+/*        if(position>=0){
+            items.remove(position);
+            adapter.notifyDataSetChanged();
+*//*            Query patientQuery = ref.child("Appointments").child(items.get(position).date).child(items.get(position).time).orderByChild("phone").equalTo(items.get(position).phone);
+            patientQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        snapshot.getRef().removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    Toast.makeText(Appointments.this, "Appointment completed for this person!", Toast.LENGTH_SHORT).show();
+                                }else{
+                                    Toast.makeText(Appointments.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                        parent = snapshot.getKey();
+                        //Log.d("parent node: ",String.valueOf(snapshot.getKey()));
+                        //Log.d("check: ",String.valueOf(snapshot.getRef()));
+                    }
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                }
+            });*//*
+
+        }*/
+        //String name = items.get(position).name;
+        //Log.d("item "+position,"Clicked!"+name);
+
     }
 }

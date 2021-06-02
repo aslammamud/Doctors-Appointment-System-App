@@ -1,6 +1,7 @@
 package com.error404.appointmentsystem;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +47,7 @@ public class CommonListAdapter extends BaseAdapter {
 
         TextView textView = convertView.findViewById(R.id.emergencyContact);
 
-        textView.setText(list_array[position]);
+        textView.setText(Html.fromHtml(list_array[position]));
 
         return convertView;
     }

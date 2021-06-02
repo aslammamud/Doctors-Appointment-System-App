@@ -140,7 +140,7 @@ public class LoginActivity extends AppCompatActivity {
                                 loadingBar.dismiss();
 
                                 Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
-                                finish();
+                                //finish();
                                 startActivity(intent);
                             } else if (parentDbName.equals("Doctors")) {
                                 Toast.makeText(LoginActivity.this, "logged in Successfully...", Toast.LENGTH_SHORT).show();
@@ -148,7 +148,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 Intent intent = new Intent(LoginActivity.this, DoctorHomeActivity.class);
                                 intent.putExtra("DoctorID", UserID);
-                                finish();
+                                //finish();
                                 startActivity(intent);
                             }
 

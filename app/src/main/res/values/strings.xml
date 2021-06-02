@@ -39,50 +39,66 @@
     </string-array>
 
     <string-array name="emergency_list_array">
-        <item>Hospital: 01716471766</item>
-        <item>Medicine: 017000006</item>
-        <item>Betha: 017000006</item>
-        <item>Kata: 017000006</item>
-        <item>Shelai: 017000006</item>
-        <item>Surgery: 017000006</item>
+        <item>Help Desk: 01711000010</item>
+        <item>Medicine: 01711000011</item>
+        <item>Emergency: 01711000012</item>
+        <item>Ambulance 1: 01711000013</item>
+        <item>Ambulance 2: 01711000014</item>
+        <item>Ambulance 3: 01711000015</item>
+        <item>ICU services: 01711000016</item>
+        <item>Critical Care: 01711000017</item>
+        <item>Administration: 01711000018</item>
     </string-array>
 
     <string-array name="tips_array">
         <item>
-            Tip no-1: Use This App Always
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam feugiat quam rhoncus erat tincidunt vestibulum.
-            Quisque id ligula ex. Phasellus tortor magna, auctor vitae rhoncus ac, scelerisque at lectus.
-            Ut sed efficitur libero. Maecenas egestas nibh eu velit efficitur, quis aliquam tortor iaculis.
+            &lt;b&gt;ব্যায়াম অনুশীলন করুন: &lt;/b&gt;&lt;br&gt;&lt;br&gt;
+            প্রতিদিন ঘুম থেকে উঠে  ব্যায়াম অনুশীলন করতে শিখুন। এটি আপনার  হজম শক্তি বাড়ায়  এবং পিঠে ব্যথা সহজ করে। এছড়াও  নিয়মমাফিক  রুটিন, আরও শক্তি, আরও ভাল মেজাজ, ভাল ঘুম, নিম্ন রক্তচাপ, স্ট্রেস কম ইত্যাদি কাজে সহায়তা করে।
         </item>
         <item>
-            Tip no-2: Be Careful
-            Integer cursus purus dui, in gravida lorem commodo ac.
-            Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            &lt;b&gt;প্রত্যহ  ব্রাশ করুন: &lt;/b&gt;&lt;br&gt;&lt;br&gt;
+            অনেকে নিয়ম মাফিক কীভাবে দাঁত ব্রাশ করবেন তা জানেন না। ভুল  ভাবে ব্রাশ করার ফলে দাঁত ও মাড়ির যতটা ক্ষতি হয় তা মোটেই ব্রাশ না করার কারণ হতে পারে। প্রচুর লোকেরা যথেষ্ট পরিমাণে ব্রাশ করেন না, ফ্লস করবেন না এবং নিয়মিত কোনও দন্তচিকিত্সা সঙ্গে প্রয়োজনে কথা বলুন  এবং কমপক্ষে দুই মিনিটের জন্য ব্রাশ করুন।
         </item>
         <item>
-            Tip no-3: Keep Wifi On
-            Integer volutpat non mi hendrerit iaculis. Fusce faucibus a justo ac egestas.
-            Duis varius urna at sem efficitur semper. Fusce elementum vulputate mi, eget euismod ex aliquam ac.
+            &lt;b&gt;ভিটামিন সি যুক্ত খাবার খান: &lt;/b&gt;&lt;br&gt;&lt;br&gt;
+            আমাদের প্রতিদিন কমপক্ষে ৯০  মিলিগ্রাম ভিটামিন সি প্রয়োজন। এটি পাওয়ার সর্বোত্তম উপায় হ’ল প্রতিদিন তাজা ফল এবং শাকসব্জী কমপক্ষে পাঁচটি পরিবেশন করা। কমলা এবং পেয়ারা খাবার চেষ্টা করুন।
+        </item>
+        <item>
+            &lt;b&gt;ভিটামিন এ নিন: &lt;/b&gt;&lt;br&gt;&lt;br&gt;
+            এ ভিটামিন এবং বিটা ক্যারোটিন রোগের বিরুদ্ধে প্রতিরোধ ক্ষমতা বাড়াতে সহায়তা করে। এটি হামের মতো রোগ নিরাময়ের ক্ষেত্রে সহায়তা করে এবং WHO দ্বারা প্রস্তাবিত।
+            ভিটামিন এ এর   প্রাকৃতিক উত্স হলো কিডনি, যকৃত, দুগ্ধজাত পণ্য, সবুজ এবং হলুদ শাকসব্জী, পেপে, আম, মরিচ, লাল সোরেল এবং লাল পাম তেল।
+        </item>
+        <item>
+            &lt;b&gt;বিশুদ্ধ পানি পান করুন: &lt;/b&gt;&lt;br&gt;&lt;br&gt;
+            অনুশীলন করার সময় সফট ড্রিঙ্কস বা এনার্জি ড্রিংকস পান করবেন না। আপনার কাজের  সময়  পর্যাপ্ত পরিমাণ জল পান করে সঠিকভাবে হাইড্রেটেড থাকুন।
         </item>
     </string-array>
 
     <string-array name="faqs_array">
         <item>
-            Question: 1
-            Answer: 1
+            &lt;b&gt; ১. এপয়েন্টমেন্ট ট্রেক করা যাবে? &lt;/b&gt;&lt;br&gt;&lt;br&gt;
+
+            &lt;b&gt;উত্তরঃ &lt;/b&gt; হা, আপনি আপনার এপয়েন্টমেন্ট ট্রেক করতে পারবেন। ট্রেক এপয়েন্টমেন্ট ট্যাব এ যেয়ে যে ডাক্তার এর আন্ডারে এপয়েন্টমেন্ট নিয়েছেন সেই ডক্টর সিলেক্ট করে আপনার প্রদত্ত তারিখ এবং সময় নির্বাচন করলেই আপনি আপনার সিরিয়াল দেখতে পারবেন।
         </item>
         <item>
-            Question: 2
-            Answer: 2
+            &lt;b&gt; ২. এই এপ ব্যবহার করতে কি কোন টাকা প্রয়োজন হবে? &lt;/b&gt;&lt;br&gt;&lt;br&gt;
+
+            &lt;b&gt;উত্তরঃ &lt;/b&gt; না, এই এপ সম্পূর্ন ফ্রি তে ব্যবহার করা যাবে।
         </item>
         <item>
-            Question: 3
-            Answer: 3
+            &lt;b&gt; ৩. এখানে কি সব হাসপাতালের ডাক্তারের এপয়েন্টমেন্ট পাওয়া যাবে? &lt;/b&gt;&lt;br&gt;&lt;br&gt;
+
+            &lt;b&gt;উত্তরঃ &lt;/b&gt; না, এপটি শুধু একটিমাত্র হাসপাতালকে কেন্দ্র করে বানানো, তাই এখানে শুধু এই হাসপাতালের ডাক্তারের এপয়েন্টমেন্ট নেওয়া যাবে।
         </item>
         <item>
-            Question: 4
-            Answer: 4
+            &lt;b&gt; ৪. লগ-ইন ছাড়া কি এপয়েন্টমেন্ট দেখা যাবে? &lt;/b&gt;&lt;br&gt;&lt;br&gt;
+
+            &lt;b&gt;উত্তরঃ &lt;/b&gt; জ্বি হ্যা দেখা যাবে। সবার সুবিধার কথা মাথায় রেখে এপটি লগ-ইন ফ্রি রাখা হয়েছে।
+        </item>
+        <item>
+            &lt;b&gt; ৫. এপটিতে কি ফিডব্যাক দেয়া যাবে? &lt;/b&gt;&lt;br&gt;&lt;br&gt;
+
+            &lt;b&gt;উত্তরঃ &lt;/b&gt; জ্বি দেয়া যাবে এবং আপনি অন্যান্য ডাক্তার কে দেয়া ফিডব্যাক দেখতে ও পারবেন।
         </item>
     </string-array>
 

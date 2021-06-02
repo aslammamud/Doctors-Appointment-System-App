@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:weightSum="6">
+
+            <TextView
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorCard2"
+                android:fontFamily="@font/allerta"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Sr."
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1.5"
+                android:background="@color/colorCard2"
+                android:fontFamily="@font/allerta"
+                android:paddingVertical="5dp"
+                android:paddingStart="10dp"
+                android:text="Doctor Name"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorCard2"
+                android:fontFamily="@font/allerta"
+                android:paddingVertical="5dp"
+                android:text="ID"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_marginVertical="5dp"
+                android:layout_weight="2"
+                android:background="@color/colorCard2"
+                android:fontFamily="@font/allerta"
+                android:paddingVertical="5dp"
+                android:paddingStart="20dp"
+                android:text="Remove"
+                android:textSize="18sp" />
+        </TableRow>
+    </TableLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/docSerialRecylcerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/goBackButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:background="@color/colorAcceptButton"
+        android:fontFamily="@font/allerta"
+        android:text="Go Back"
+        android:textColor="@color/colorCard1"
+        android:textSize="22sp" />
+</LinearLayout>

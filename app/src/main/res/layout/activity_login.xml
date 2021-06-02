@@ -71,6 +71,7 @@
                 android:layout_gravity="center"
                 android:ems="10"
                 android:gravity="center"
+                android:inputType="numberPassword"
                 android:hint="password"
                 android:paddingVertical="10dp" />
 

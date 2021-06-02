@@ -1,6 +1,5 @@
 package com.error404.appointmentsystem;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
@@ -104,8 +102,8 @@ public class DoctorProfileActivity extends AppCompatActivity {
                         myRef.updateChildren(updatedValues);
                         Toast.makeText(DoctorProfileActivity.this, "Profile updated successfully!", Toast.LENGTH_SHORT).show();
                         makeAllGone();
-                        //finish();
-                        //startActivity(getIntent());
+                        finish();
+                        startActivity(getIntent());
                     }
                 }
 
@@ -205,7 +203,7 @@ public class DoctorProfileActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+/*        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Are you sure you want to exit?")
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -219,7 +217,7 @@ public class DoctorProfileActivity extends AppCompatActivity {
                     }
                 });
         AlertDialog alert = builder.create();
-        alert.show();
-
+        alert.show();*/
+        finish();
     }
 }

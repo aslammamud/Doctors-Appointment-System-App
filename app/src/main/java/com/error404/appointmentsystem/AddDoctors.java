@@ -2,7 +2,6 @@ package com.error404.appointmentsystem;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,7 +16,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -30,20 +28,24 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.makeText;
 
 public class AddDoctors extends AppCompatActivity implements View.OnClickListener {
     String[] departmentNames;
-    private EditText name, id, phone, email, speciality, degree;
+    private EditText name, id, phone, email, speciality, degree, password;
     private Button addNewDoctor, goBack, chooseImage, removeImage;
     private ImageView imageHolder;
     private Spinner departmentSpinner;
     private Uri imageUri;
     private String extension;
-    private DatabaseReference myRef;
+    private DatabaseReference myRef, docIdentityref, historyref;
     private StorageReference myRef2;
 
     @Override
@@ -52,6 +54,8 @@ public class AddDoctors extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.activity_adddoctors);
 
         myRef = FirebaseDatabase.getInstance().getReference("Departments");
+        docIdentityref = FirebaseDatabase.getInstance().getReference("Doctors");
+        historyref = FirebaseDatabase.getInstance().getReference("Admin-History");
         myRef2 = FirebaseStorage.getInstance().getReference("Departments");
 
         addNewDoctor = findViewById(R.id.addNewDoctor);
@@ -65,6 +69,7 @@ public class AddDoctors extends AppCompatActivity implements View.OnClickListene
         phone = findViewById(R.id.phone);
         email = findViewById(R.id.email);
         speciality = findViewById(R.id.address);
+        password = findViewById(R.id.password);
         degree = findViewById(R.id.degree);
 
         chooseImage.setOnClickListener(this);
@@ -72,7 +77,7 @@ public class AddDoctors extends AppCompatActivity implements View.OnClickListene
         removeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                imgremover();
             }
         });
 
@@ -131,77 +136,93 @@ public class AddDoctors extends AppCompatActivity implements View.OnClickListene
         }
     }
 
+    public void imgremover() {
+        imageUri = Uri.parse("android.resource://com.error404.appointmentsystem/" + R.drawable.doctordefaultimage);
+        //String imgPath = imageUri.toString();
+        imageHolder.setImageURI(imageUri);
+        //imageHolder.setImageResource(R.drawable.doctordefaultimage);
+    }
+
     public void uploadData() {
-        final ProgressDialog pd = new ProgressDialog(AddDoctors.this);
-        pd.setTitle("Uploading Picture...");
-        pd.show();
+
         final String randomKey = UUID.randomUUID().toString();
         final StorageReference mountainImagesRef = myRef2.child("Doctors/" + randomKey + "." + extension);
 
         String Name = name.getText().toString();
-        String ID = id.getText().toString();
+        final String ID = id.getText().toString();
         String Phone = phone.getText().toString();
         String Email = email.getText().toString();
         String Department = departmentSpinner.getSelectedItem().toString();
         String Degree = degree.getText().toString();
         String Speciality = speciality.getText().toString();
         String Image = randomKey + "." + extension;
-        String Password = speciality.getText().toString();
+        String Password = password.getText().toString();
 
-        DoctorsItem DataItem = new DoctorsItem(Name, ID, Email, Phone, Degree, Speciality, Image, Password);
+        if (Name.isEmpty()) {
+            Toast.makeText(AddDoctors.this, "Name is required!", Toast.LENGTH_SHORT).show();
+        } else if (ID.isEmpty()) {
+            Toast.makeText(AddDoctors.this, "ID is required!", Toast.LENGTH_SHORT).show();
+        } else if (Phone.isEmpty()) {
+            Toast.makeText(AddDoctors.this, "Phone is required!", Toast.LENGTH_SHORT).show();
+        } else if (Email.isEmpty()) {
+            Toast.makeText(AddDoctors.this, "Email is required!", Toast.LENGTH_SHORT).show();
+        } else if (Department.isEmpty()) {
+            Toast.makeText(AddDoctors.this, "Department is required!", Toast.LENGTH_SHORT).show();
+        } else if (Degree.isEmpty()) {
+            Toast.makeText(AddDoctors.this, "Degree number is required!", Toast.LENGTH_SHORT).show();
+        } else if (Password.isEmpty()) {
+            Toast.makeText(AddDoctors.this, "Password is required!", Toast.LENGTH_SHORT).show();
+        } else {
+            final ProgressDialog pd = new ProgressDialog(AddDoctors.this);
+            pd.setTitle("Uploading Picture...");
+            pd.show();
 
-        myRef.child(Department).child(Name).setValue(DataItem).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                makeText(getApplicationContext(), "New doctor successfully added!", LENGTH_LONG).show();
-                mountainImagesRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        pd.dismiss();
-                        Snackbar.make(findViewById(android.R.id.content), "Doctors Picture Uploaded Successfully!", Snackbar.LENGTH_LONG).show();
-                        finish();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        pd.dismiss();
-                        Toast.makeText(getApplicationContext(), "Failed To Upload Doctors Picture", Toast.LENGTH_LONG).show();
-                    }
-                }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                        double progressPercent = (100.00 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
-                        pd.setMessage("Progress: " + (int) progressPercent + "%");
-                    }
-                });
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                makeText(getApplicationContext(), "Error! Try again", LENGTH_LONG).show();
-            }
-        });
+            final DoctorsItem DataItem = new DoctorsItem(Name, ID, Email, Phone, Degree, Speciality, Image, Password);
+            final String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+            final String timeStamp = String.valueOf(TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()));
+            final HistoryItem historyItem = new HistoryItem(date, "Doctor Added", ID);
+
+            myRef.child(Department).child(Name).setValue(DataItem).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    docIdentityref.child(ID).setValue(DataItem);
+                    historyref.child(date + " " + timeStamp).setValue(historyItem);
+                    makeText(getApplicationContext(), "New doctor successfully added!", LENGTH_LONG).show();
+                    mountainImagesRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            pd.dismiss();
+                            Snackbar.make(findViewById(android.R.id.content), "Doctors Picture Uploaded Successfully!", Snackbar.LENGTH_LONG).show();
+                            finish();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            pd.dismiss();
+                            Toast.makeText(getApplicationContext(), "Failed To Upload Doctors Picture", Toast.LENGTH_LONG).show();
+                        }
+                    }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                            double progressPercent = (100.00 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+                            pd.setMessage("Progress: " + (int) progressPercent + "%");
+                        }
+                    });
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    makeText(getApplicationContext(), "Error! Try again", LENGTH_LONG).show();
+                }
+            });
+        }
+
     }
 
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Are you sure you want to exit?")
-                .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        AddDoctors.this.finish();
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alert = builder.create();
-        alert.show();
-
+        finish();
     }
 
 }

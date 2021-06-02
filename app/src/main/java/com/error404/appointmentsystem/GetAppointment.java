@@ -11,6 +11,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -94,21 +95,36 @@ public class GetAppointment extends AppCompatActivity {
                 String phone = phoneOfPatient.getText().toString();
                 String address = addressOfPatient.getText().toString();
 
-                Intent intent = new Intent(GetAppointment.this, GetAppointmentConfirmation.class);
-                intent.putExtra("Date", date);
-                intent.putExtra("Time", time);
-                intent.putExtra("PatientName", name);
-                intent.putExtra("Age", age);
-                intent.putExtra("Gender", gender);
-                intent.putExtra("BloodGroup", bloodgroup);
-                intent.putExtra("Symptoms", symptoms);
-                intent.putExtra("Phone", phone);
-                intent.putExtra("Address", address);
-                intent.putExtra("DoctorName", DoctorName);
-                intent.putExtra("DoctorID", DoctorID);
-                finish();
-                startActivity(intent);
-
+                if (date.isEmpty()) {
+                    Toast.makeText(GetAppointment.this, "Date is required!", Toast.LENGTH_SHORT).show();
+                } else if (name.isEmpty()) {
+                    Toast.makeText(GetAppointment.this, "Name is required!", Toast.LENGTH_SHORT).show();
+                } else if (age.isEmpty()) {
+                    Toast.makeText(GetAppointment.this, "Age is required!", Toast.LENGTH_SHORT).show();
+                } else if (bloodgroup.isEmpty()) {
+                    Toast.makeText(GetAppointment.this, "Bloodgroup is required!", Toast.LENGTH_SHORT).show();
+                } else if (symptoms.isEmpty()) {
+                    Toast.makeText(GetAppointment.this, "Symptoms is required!", Toast.LENGTH_SHORT).show();
+                } else if (phone.isEmpty()) {
+                    Toast.makeText(GetAppointment.this, "Phone number is required!", Toast.LENGTH_SHORT).show();
+                } else if (address.isEmpty()) {
+                    Toast.makeText(GetAppointment.this, "Address is required!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(GetAppointment.this, GetAppointmentConfirmation.class);
+                    intent.putExtra("Date", date);
+                    intent.putExtra("Time", time);
+                    intent.putExtra("PatientName", name);
+                    intent.putExtra("Age", age);
+                    intent.putExtra("Gender", gender);
+                    intent.putExtra("BloodGroup", bloodgroup);
+                    intent.putExtra("Symptoms", symptoms);
+                    intent.putExtra("Phone", phone);
+                    intent.putExtra("Address", address);
+                    intent.putExtra("DoctorName", DoctorName);
+                    intent.putExtra("DoctorID", DoctorID);
+                    finish();
+                    startActivity(intent);
+                }
             }
         });
 

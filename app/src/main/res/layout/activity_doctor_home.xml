@@ -20,6 +20,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/allerta"
             android:text="Home"
+            android:paddingStart="50dp"
             android:gravity="center"
             android:textColor="@color/colorBlack"
             android:textSize="25sp" />

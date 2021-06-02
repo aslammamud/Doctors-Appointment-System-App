@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorCard1">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:gravity="start"
+            android:weightSum="6">
+
+            <TextView
+                android:id="@+id/adminHistDate"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:fontFamily="@font/allerta"
+                android:gravity="center"
+                android:paddingVertical="5dp"
+                android:paddingEnd="15dp"
+                android:text="Date" />
+
+            <TextView
+                android:id="@+id/adminHistMSG"
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:fontFamily="@font/allerta"
+                android:gravity="start"
+                android:paddingVertical="5dp"
+                android:text="History" />
+
+            <TextView
+                android:id="@+id/adminHistDocId"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/allerta"
+                android:gravity="center"
+                android:paddingVertical="5dp"
+                android:text="ID" />
+
+            <ImageButton
+                android:id="@+id/adminHistRemove"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:paddingVertical="3dp"
+                android:src="@drawable/discard" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

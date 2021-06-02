@@ -21,8 +21,10 @@
         <activity android:name=".DoctorProfileActivity" />
         <activity android:name=".DoctorHomeActivity" />
         <activity android:name=".Appointments" />
-        <activity android:name=".AdminHomeActivity" />
+        <activity android:name=".AdminHistory" />
+        <activity android:name=".RemoveDoctor" />
         <activity android:name=".AddDoctors" />
+        <activity android:name=".AdminHomeActivity" />
         <activity android:name=".GetAppointment" />
         <activity android:name=".GetAppointmentConfirmation" />
         <activity android:name=".Feedback" />

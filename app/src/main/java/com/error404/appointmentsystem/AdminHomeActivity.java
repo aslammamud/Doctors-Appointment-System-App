@@ -37,6 +37,22 @@ public class AdminHomeActivity extends AppCompatActivity {
             }
         });
 
+        removedocButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminHomeActivity.this, RemoveDoctor.class);
+                startActivity(intent);
+            }
+        });
+
+        historyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminHomeActivity.this, AdminHistory.class);
+                startActivity(intent);
+            }
+        });
+
         reviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,8 +72,8 @@ public class AdminHomeActivity extends AppCompatActivity {
                                 Paper.book().write(Prevalent.UserIdKey, "id");
                                 Paper.book().write(Prevalent.UserPasswordKey, "pass");
                                 Paper.book().write(Prevalent.ParentDB, "user");
-                                startActivity(new Intent(AdminHomeActivity.this, HomeActivity.class));
                                 finish();
+                                //startActivity(new Intent(AdminHomeActivity.this, HomeActivity.class));
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -81,8 +97,8 @@ public class AdminHomeActivity extends AppCompatActivity {
                         Paper.book().write(Prevalent.UserIdKey, "id");
                         Paper.book().write(Prevalent.UserPasswordKey, "pass");
                         Paper.book().write(Prevalent.ParentDB, "user");
-                        startActivity(new Intent(AdminHomeActivity.this, HomeActivity.class));
                         finish();
+                        //startActivity(new Intent(AdminHomeActivity.this, HomeActivity.class));
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {

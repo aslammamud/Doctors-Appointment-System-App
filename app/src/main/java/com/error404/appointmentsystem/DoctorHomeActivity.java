@@ -32,7 +32,7 @@ public class DoctorHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_home);
 
-        Paper.init(this);
+        Paper.init(DoctorHomeActivity.this);
         final String Docid = Paper.book().read(Prevalent.UserIdKey);
 
         myRef = FirebaseDatabase.getInstance().getReference("Doctors").child(Docid);
@@ -90,7 +90,7 @@ public class DoctorHomeActivity extends AppCompatActivity {
                                 Paper.book().write(Prevalent.UserPasswordKey, "pass");
                                 Paper.book().write(Prevalent.ParentDB, "user");
                                 finish();
-                                startActivity(new Intent(DoctorHomeActivity.this, LoginActivity.class));
+                                //startActivity(new Intent(DoctorHomeActivity.this, LoginActivity.class));
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -116,7 +116,7 @@ public class DoctorHomeActivity extends AppCompatActivity {
                         Paper.book().write(Prevalent.UserPasswordKey, "pass");
                         Paper.book().write(Prevalent.ParentDB, "user");
                         finish();
-                        startActivity(new Intent(DoctorHomeActivity.this, LoginActivity.class));
+                        //startActivity(new Intent(DoctorHomeActivity.this, LoginActivity.class));
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {

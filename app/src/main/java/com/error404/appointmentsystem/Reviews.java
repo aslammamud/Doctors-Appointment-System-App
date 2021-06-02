@@ -67,6 +67,5 @@ public class Reviews extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         finish();
-        super.onBackPressed();
     }
 }

@@ -234,6 +234,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/shape_textinput"
                             android:ems="10"
+                            android:inputType="numberDecimal"
                             android:paddingLeft="8dp" />
 
                     </LinearLayout>
